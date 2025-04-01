@@ -57,12 +57,13 @@ DB_PASSWORD=
 #### 🔹 Email Configuration
 ```bash
 MAIL_MAILER=log
+MAIL_SCHEME=null
 MAIL_HOST=127.0.0.1
 MAIL_PORT=2525
-MAIL_USERNAME=your_email@gmail.com
-MAIL_PASSWORD=your_password
+MAIL_USERNAME="nguyenducviet2033@gmail.com"
+MAIL_PASSWORD="hawpcxwyjwmtcrmd"
 MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=your_email@gmail.com
+MAIL_FROM_ADDRESS="nguyenducviet2033@gmail.com"
 MAIL_FROM_NAME="${APP_NAME}"
 ```
 
