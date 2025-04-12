@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Trang Chủ') }}
         </h2>
     </x-slot>
 
@@ -9,9 +9,126 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+
+                    <section
+                        style="max-height: 100%;    max-width: 100%;    overflow: hidden;    aspect-ratio: 2.21/1;    position: relative;"                        class="slider">
+                        <div style=" position: relative;    transition: var(--main-traisision);" class="slider-items">
+                            <div style="position: absolute;" class="slider-item">
+                                <img src="{{ asset('frontend/asset/images/banner1.jpg') }}" alt="">
+                            </div>
+                            <div style="position: absolute;" class="slider-item">
+                                <img style="width: 100vw;" src="{{ asset('frontend/asset/images/banner1.jpg') }}" alt="">
+                            </div>
+                            <div style="position: absolute;" class="slider-item">
+                                <img style="width: 100vw;" src="{{ asset('frontend/asset/images/banner2.jpg') }}" alt="">
+                            </div>
+                            <div style="position: absolute;" class="slider-item">
+                                <img style="width: 100vw;" src="{{ asset('frontend/asset/images/banner4.jpg') }}" alt="">
+                            </div>
+                            <div style="position: absolute;" class="slider-item">
+                                <img style="width: 100vw;" src="{{ asset('frontend/asset/images/banner3.jpg') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="slider-arrow" style="display: none;">
+                            <i class="ri-arrow-right-fill"></i>
+                            <i class="ri-arrow-left-fill"></i>
+                        </div>
+                    </section>
+
                 </div>
             </div>
         </div>
     </div>
+    <div class="p-6 text-gray-900">
+        {{ __("You're logged in!") }}
+    </div>
+    @push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const sliderItem = document.querySelectorAll('.slider-item')
+        for (let index = 0; index < sliderItem.length; index++) {
+
+            sliderItem[index].style.left = index * 100 + "%"
+
+        }
+
+        const sliderItems = document.querySelector('.slider-items')
+        const arrowRight = document.querySelector('.ri-arrow-right-fill')
+        const arrowLeft = document.querySelector('.ri-arrow-left-fill')
+        let i = 0
+        if (arrowRight != null && arrowLeft != null) {
+            arrowRight.addEventListener('click', () => {
+                if (i < sliderItem.length - 1) {
+                    i++
+                    sliderMove(i)
+                } else {
+                    return false
+                }
+            })
+            arrowLeft.addEventListener('click', () => {
+                if (i <= 0) {
+                    return false
+                } {
+                    i--
+                    sliderMove(i)
+                }
+            })
+            function autoSlider() {
+                if (i < sliderItem.length - 1) {
+                    i++
+                    sliderMove(i)
+                } else {
+                    i = 0
+                    sliderMove(i)
+                }
+            }
+        }
+        function sliderMove(i) {
+            sliderItems.style.left = -i * 100 + "%"
+        }
+        setInterval(autoSlider, 3000)});
+    </script>
+    @endpush
 </x-app-layout>
+
+
+<style>
+    .slider-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+
+    .slider-items {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const items = document.querySelectorAll(".slider-item");
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            items.forEach((item, i) => {
+                item.style.opacity = i === index ? "1" : "0";
+                item.style.transition = "opacity 1s ease-in-out";
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % items.length;
+            showSlide(currentIndex);
+        }
+
+        // Khởi tạo
+        showSlide(currentIndex);
+        setInterval(nextSlide, 3000); // Đổi ảnh mỗi 3s
+    });
+</script>
