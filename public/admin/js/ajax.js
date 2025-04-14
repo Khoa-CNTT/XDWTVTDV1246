@@ -136,3 +136,27 @@ $('#file').on('change',()=>{
     }
 
 
+    function removeRowOD(user_id, url) {
+        if (confirm("Bạn Có Chắc Chán Xóa?")) {
+            $.ajax({
+                url: url,
+                data: { user_id },
+                method: 'GET',
+                dataType: 'JSON',
+                success: function(res) {
+                    if (res.success == true) {
+                        setTimeout(function() {
+                                location.reload();
+                        }, 2000); 
+                    } else {
+                        alert("Có lỗi xảy ra. Vui lòng thử lại.");
+                    }
+                },
+                error: function() {
+                    alert("Không thể kết nối đến máy chủ. Vui lòng kiểm tra kết nối mạng.");
+                }
+            });
+        }
+    }
+
+

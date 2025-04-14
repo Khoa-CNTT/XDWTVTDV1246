@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}">
     <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
     <!-- Scripts -->
+    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
+<script src="{{ asset('admin/js/scrpit.js') }}"></script>
+<script src="{{ asset('admin/js/ajax.js') }}"></script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 @stack('scripts')

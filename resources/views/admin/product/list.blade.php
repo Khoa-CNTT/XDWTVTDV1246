@@ -29,8 +29,8 @@
                                         <td>{{number_format($product -> Price_sale)}}</td>
                                         <td>{{$product -> created_at}}</td>
                                         <td>
-                                            <a class="edit-class" href="/adm/product/edit/{{$product -> id}}">Sửa</a>
-                                            <a onclick="removeRow(product_id=<?php echo $product -> id?>,url='/adm/product/delete')" class="delete-class" href="">Xóa</a>
+                                            <a class="edit-class" href="/admin/product/edit/{{$product -> id}}">Sửa</a>
+                                            <a onclick="removeRow(product_id=<?php echo $product -> id?>,url='/admin/product/delete')" class="delete-class" href="">Xóa</a>
                                         </td>
                                     </tr>  
                                     @endforeach

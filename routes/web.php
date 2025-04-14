@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
     Route::get('/', function () {return view('welcome');});
@@ -28,6 +29,8 @@ Route::middleware((['auth', 'admin']))->group(function () {
     Route::get('admin/dashboard', [HomeController::class, 'index']);
     Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
 
+    Route::get('/admin/home',[HomeController::class,'home']);
+
     Route::post('/admin/product/add',[AdminProductController::class,'insert_product']);
     Route::get('/admin/product/create',[AdminProductController::class,'add_product']);
     Route::get('/admin/product/list',[AdminProductController::class,'list_product']);
@@ -42,7 +45,10 @@ Route::middleware((['auth', 'admin']))->group(function () {
     Route::get('admin/slide/edit/{id}',[AdminBannerController::class,'edit_banner']);
     Route::post('admin/slide/edit/{id}',[AdminBannerController::class,'update_banner']);
 
-
+    Route::get('admin/account/list',[UserController::class,'list_account']);
+    Route::post('/admin/account/delete',[UserController::class,'delete_account']);
+    Route::get('/admin/account/edit/{id}',[UserController::class,'edit_account']);
+    Route::post('/admin/account/edit/{id}',[UserController::class,'update_account']);
 });
 Route::middleware((['auth', 'employee']))->group(function () {
 Route::get('employee/dashboard', [EmployeeController::class, 'index']);

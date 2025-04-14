@@ -4,7 +4,7 @@
                           <ul class="sub-menu">
                               <div class="sub-menu-item">
 
-                                  <li><a href="/adm/home"><i class="ri-arrow-right-s-fill"></i>Tổng quát</a></li>
+                                  <li><a href="/admin/home"><i class="ri-arrow-right-s-fill"></i>Tổng quát</a></li>
                               </div>
                           </ul>
                       </li>
@@ -40,8 +40,9 @@
                       <li><a href=""><i class="ri-file-list-line"></i>Account<i class="ri-add-box-line"></i></a>
                           <ul class="sub-menu">
                               <div class="sub-menu-item">
-                                  <li><a href="/admin/account/list"><i class="ri-arrow-right-s-fill"></i>Danh Sách
-                                          Account</a></li>
+                                  <li>
+                                      <a href="/admin/account/list"><i class="ri-arrow-right-s-fill"></i>Danh Sách Account</a>
+                                  </li>
 
                               </div>
                           </ul>
