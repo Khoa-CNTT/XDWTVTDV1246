@@ -22,7 +22,11 @@
                     <x-nav-link :href="route('Products')" :active="request()->routeIs('Support')">
                         {{ __('Support') }}
                     </x-nav-link>
-                    
+                    @if (Auth::check() && Auth::user()->usertype == 'employee')
+                    <x-nav-link :href="route('employee.dashboard')" :active="request()->routeIs('employee.dashboard')">
+                        {{ __('Nhân Viên') }}
+                    </x-nav-link>
+                    @endif
                     @if (Auth::check() && Auth::user()->usertype == 'admin')
                     <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Quản Lý') }}

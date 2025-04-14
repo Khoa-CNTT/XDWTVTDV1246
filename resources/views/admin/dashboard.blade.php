@@ -1,17 +1,26 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Quản Lý') }}
-        </h2>
-    </x-slot>
+    
+    <section class="admin">
+        <div class="row-grid">
+            <div class="admin-sidebar">
+                    @include('admin.parts.sidebar')
+            </div>
+            <div class="admin-content">
+                <div class="admin-content-main">
+                    <div class="admin-content-main-title">
+                        <h1>{{ isset($title) ? $title : 'Dashboard' }}</h1>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+                    </div>
+                    <div class="admin-content-main-content">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        
+    </section>
+    <footer>
+        @include('admin.parts.footeradmin')
+    </footer>
+    <script src="{{asset('admin/js/ajax.js')}}"></script>
 </x-app-layout>
