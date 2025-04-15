@@ -2,29 +2,38 @@
 
 use App\Http\Controllers\AdminBannerController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
     Route::get('/', function () {return view('welcome');});
 
     Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+    // Route::get('/dashboard', [BannerController::class, 'index']);
+
     Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
-    Route::get('/Products',  [ProductsController::class, 'index'])->name('Products');
+    // Route::get('/Products',  [ProductsController::class, 'index']);
+    Route::get('AllProducts',[ProductsController::class,'show_allhotproduct'])->name('AllProducts');
+    Route::get('/Products/{id}',[ProductsController::class,'show_product'])->name('Products/{id}');
+    Route::get('/dashboard', [BannerController::class, 'index'])->name('dashboard');
 });
 Route::middleware('auth')->group(function () {
-
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__ . '/auth.php';
+
+
 Route::middleware((['auth', 'admin']))->group(function () {
     Route::get('admin/dashboard', [HomeController::class, 'index']);
     Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
@@ -50,7 +59,17 @@ Route::middleware((['auth', 'admin']))->group(function () {
     Route::get('/admin/account/edit/{id}',[UserController::class,'edit_account']);
     Route::post('/admin/account/edit/{id}',[UserController::class,'update_account']);
 });
+
+
+
+
+
+
 Route::middleware((['auth', 'employee']))->group(function () {
 Route::get('employee/dashboard', [EmployeeController::class, 'index']);
 Route::get('/employee/dashboard', [EmployeeController::class, 'index'])->name('employee.dashboard');
 });
+
+
+Route::post('/upload',[UploadController::class,'upload']);
+Route::post('/uploads',[uploadcontroller::class,'uploadImage']);

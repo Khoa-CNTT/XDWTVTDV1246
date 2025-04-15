@@ -29,9 +29,8 @@
                                         </td>
                                         
                                         <td>
-                                            <a class="edit-class" href="/adm/slide/edit/{{$banner -> id}}">Sửa</a>
-                                            <a onclick="removeRows(banner=<?php echo $banner -> id?>,url='/adm/slide/delete')" class="delete-class" href="">Xóa</a>
-                                        </td>
+                                            <a class="edit-class" href="/admin/slide/edit/{{$banner -> id}}">Sửa</a>
+                                             </td>
                                     </tr>  
                                     @endforeach
                                     

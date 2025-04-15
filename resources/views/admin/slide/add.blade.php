@@ -1,6 +1,6 @@
 @extends('admin.dashboard')
 @section('content')
-<form action="/adm/slide/add" enctype="multipart/form-data" method="post">
+<form action="/admin/slide/add" enctype="multipart/form-data" method="post">
 
     <div class="admin-content-main-content-product-add">
         <div class="admin-content-main-content-images">

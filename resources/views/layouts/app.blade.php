@@ -13,10 +13,12 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}">
     <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
-<script src="{{ asset('admin/js/scrpit.js') }}"></script>
-<script src="{{ asset('admin/js/ajax.js') }}"></script>
+
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -39,51 +41,11 @@
             {{ $slot }}
         </main>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-        const sliderItem = document.querySelectorAll('.slider-item')
-        for (let index = 0; index < sliderItem.length; index++) {
-
-            sliderItem[index].style.left = index * 100 + "%"
-
-        }
-
-        const sliderItems = document.querySelector('.slider-items')
-        const arrowRight = document.querySelector('.ri-arrow-right-fill')
-        const arrowLeft = document.querySelector('.ri-arrow-left-fill')
-        let i = 0
-        if (arrowRight != null && arrowLeft != null) {
-            arrowRight.addEventListener('click', () => {
-                if (i < sliderItem.length - 1) {
-                    i++
-                    sliderMove(i)
-                } else {
-                    return false
-                }
-            })
-            arrowLeft.addEventListener('click', () => {
-                if (i <= 0) {
-                    return false
-                } {
-                    i--
-                    sliderMove(i)
-                }
-            })
-            function autoSlider() {
-                if (i < sliderItem.length - 1) {
-                    i++
-                    sliderMove(i)
-                } else {
-                    i = 0
-                    sliderMove(i)
-                }
-            }
-        }
-        function sliderMove(i) {
-            sliderItems.style.left = -i * 100 + "%"
-        }
-        setInterval(autoSlider, 3000)});
-    </script>
+    <footer>
+        @include('part.footer')
+    </footer>
+    
+    <script src="{{ asset('admin/js/ajax.js') }}"></script>
 </body>
 
 </html>

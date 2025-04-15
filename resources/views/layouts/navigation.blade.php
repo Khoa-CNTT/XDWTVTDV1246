@@ -16,12 +16,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('Products')" :active="request()->routeIs('Products')">
+                    <x-nav-link :href="route('AllProducts')" :active="request()->routeIs('AllProducts')">
                         {{ __('Products') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('Products')" :active="request()->routeIs('Support')">
+                    {{-- <x-nav-link :href="route('Products')" :active="request()->routeIs('Support')">
                         {{ __('Support') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                     @if (Auth::check() && Auth::user()->usertype == 'employee')
                     <x-nav-link :href="route('employee.dashboard')" :active="request()->routeIs('employee.dashboard')">
                         {{ __('Nhân Viên') }}

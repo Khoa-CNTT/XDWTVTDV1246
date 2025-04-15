@@ -12,7 +12,7 @@
                     <input name="Star_rating" value="{{old('Star_rating')}}" type="text" placeholder="Sao đánh giá">
                 </div>
                 <div class="admin-content-main-content-two-input">
-                    <input name="Price_noma" value="{{old('Price_nomal')}}" type="text" placeholder="Giá thuê">
+                    <input name="Price_nomal" value="{{old('Price_nomal')}}" type="text" placeholder="Giá thuê">
                     <input name="Price_sale" value="{{old('Price_sale')}}" type="text" placeholder="Giá giảm">
                 </div>
                 <div class="admin-content-main-content-two-input">

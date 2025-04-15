@@ -21,9 +21,9 @@
                                         <td>{{ $u->email }}</td>
                                         {{-- <td>{{ $u->password }}</td> --}}
                                         <td>{{ $u->usertype }}</td>
-                                        <td> <a class="edit-class" href="/admin/account/edit/{{ $u->id }}">Sửa</a></td>
+                                        <td> <a class="edit-class" href="/admin/account/edit/{{ $u->id }}">Cấp Quyền</a></td>
                                         <td>
-                                            <a onclick="removeRow(user_id=<?php echo $u->id?>,url='/admin/account/delete')" class="delete-class" href="">Xóa</a>
+                                            <a onclick="removeRow(user_id=<?php echo $u->id?>,url='/admin/account/delete')" class="delete-class" href="">Xóa Tài Khoản</a>
                                             
                                         </td>
                                     </tr>
