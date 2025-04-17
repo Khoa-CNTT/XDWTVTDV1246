@@ -28,7 +28,7 @@
                     </x-nav-link>
                     @endif
                     @if (Auth::check() && Auth::user()->usertype == 'admin')
-                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                    <x-nav-link :href="route('admin.dashboard.home')" :active="request()->routeIs('admin.dashboard.home')">
                         {{ __('Quản Lý') }}
                     </x-nav-link>
                     @endif

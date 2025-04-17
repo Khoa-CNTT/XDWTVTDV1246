@@ -244,7 +244,7 @@
             </div>
         </div>
 
-        <div class="details">
+        {{-- <div class="details">
             <div class="recentOrders">
                 <div class="cardHeader">
                     <h2>Recent Orders</h2>
@@ -400,7 +400,7 @@
                     </tr>
                 </table>
             </div>
-        </div>
+        </div> --}}
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

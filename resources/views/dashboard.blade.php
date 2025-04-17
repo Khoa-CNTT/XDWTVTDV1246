@@ -66,3 +66,6 @@
         setInterval(nextSlide, 3000); // Đổi ảnh mỗi 3s
     });
 </script>
+<footer>
+    @include('part.footer')
+</footer>

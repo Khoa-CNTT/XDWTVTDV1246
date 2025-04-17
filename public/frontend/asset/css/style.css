@@ -86,9 +86,9 @@ input{
     border-radius: 2px;
     margin-right: 4px;
 }
-.hangrao{
+/* .hangrao{
     padding-bottom: 50px;
-} */
+} */ */
 
 
 
@@ -664,22 +664,23 @@ input::-webkit-inner-spin-button {
 
 /*cart-secsion*---------------------------------------------------------------------------*/
 
-.cart-secsion .row-grid{
+/* .cart-secsion .row-grid{
     grid-template-columns: 60% 40%;
     column-gap: 30px;
-}
+} */
 .cart-secsion table{
     width: 100%;
     border-collapse: collapse;
+    
 }
 .cart-secsion table,th,td {
     border: 1px solid #ddd;
     text-align: center;
     padding: 6px;
 }
-.cart-secsion table thead tr th {
+/* .cart-secsion table thead tr th {
     font-weight: var(--main-font-weight);
-}
+} */
 .cart-secsion table thead {
     background-color: black;
     color: #ddd;
@@ -699,7 +700,7 @@ input::-webkit-inner-spin-button {
 .cart-secsion table tbody tr td:last-child:hover {
     color: red
 }
-.cart-secsion-right input{
+/* .cart-secsion-right input{
     height: 35px;
     border: none;
     background-color: rgba(191, 187, 187, 0.478);
@@ -707,8 +708,8 @@ input::-webkit-inner-spin-button {
     padding-left: 12px;
     border-radius: var(--main-border-radius);
     
-}
-.cart-secsion-right select{
+} */
+/* .cart-secsion-right select{
     height: 35px;
     border: none;
     background-color: rgba(191, 187, 187, 0.478);
@@ -737,7 +738,27 @@ input::-webkit-inner-spin-button {
 }
 .cart-secsion-right-input-email input{
     width: 100%;
-}
+} */
+
+input[type="date"] {
+    width: 200px; /* Kích thước của input */
+    padding: 8px 12px; /* Khoảng cách xung quanh chữ */
+    border: 1px solid #ccc; /* Viền */
+    border-radius: 8px; /* Bo góc */
+    font-size: 14px; /* Kích thước chữ */
+    background-color: #f9f9f9; /* Màu nền */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động */
+  }
+  
+  input[type="date"]:focus {
+    border-color: #007bff; /* Màu viền khi focus */
+    background-color: #fff; /* Màu nền khi focus */
+  }
+  
+  input[type="date"]:hover {
+    border-color: #007bff; /* Màu viền khi hover */
+  }
+  
 .reset-home-and-buy{
     display: flex;
     /* transition: var(--main-traisision); */

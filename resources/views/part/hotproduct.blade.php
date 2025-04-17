@@ -1,4 +1,4 @@
-<form action="cart/add" method="post">
+<form action="/cart/add" method="post">
     <div class="container">
         <div class="row-flex row-flex-product-detail">
             <p>Căn Hộ</p><i class="ri-arrow-right-line"></i>
@@ -22,7 +22,11 @@
                     <h1 style="padding-bottom: 20px;padding-top: 25px; color: blue; margin-top: -30px">
                         {{ $product->Name }}</h1>
                     <span><span style="font-weight: bold;">Địa chỉ: </span> {{ $product->Address }} </span><span> <br>
-                    </span> <span><span style="font-weight: bold;">Số sao: </span> {{ $product->Star_rating }}</span>
+                    </span> <span class="color-span">Chất lượng:
+                        @for ($i = 0; $i < $product->Star_rating; $i++)
+                            ★
+                        @endfor
+                    </span>
                     <div class="hot-product-item-price">
                         <p><span class="sale">{{ number_format($product->Price_sale) }}<sup
                                     style="padding-right: 20px">₫</sup></span><span

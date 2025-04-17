@@ -14,7 +14,7 @@
             @foreach ($products as $product )
                 <div class="hot-product-item">
                     <div class="hangrao">
-                        <a href="/Products/{{$product -> id}}"><img  src="{{asset($product -> avatar)}}" alt=""></a>
+                        <a href="/Products/{{$product -> id}}"><img style="height: 200px"  src="{{asset($product -> avatar)}}" alt=""></a>
                         <p class="red">
                             <a href="/Products/{{$product -> id}}">
                                 {{$product -> Name}}
@@ -23,8 +23,11 @@
                     <span class="color-span">
                         {{$product -> Address}}
                     </span>
-                    <span class="color-span">
-                        {{$product -> Star_rating}}
+                    <br>
+                    <span class="color-span">Chất lượng: 
+                        @for ($i = 0; $i < $product->Star_rating; $i++)
+                        ★
+                        @endfor
                     </span>
                     <div class="hot-product-item-price">
                         <p>
@@ -45,3 +48,6 @@
     
 </section>
 </x-app-layout>
+<footer>
+    @include('part.footer')
+</footer>

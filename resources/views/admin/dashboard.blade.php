@@ -19,8 +19,8 @@
         </div>
         
     </section>
-    <footer>
+    <footerr>
         @include('admin.parts.footeradmin')
-    </footer>
+    </footerr>
     <script src="{{asset('admin/js/ajax.js')}}"></script>
 </x-app-layout>

@@ -65,56 +65,56 @@ if(arrowRight != null && arrowLeft !=null){
     //     }
     // })
 //click product image detail-------------------------------------------------------------------------------------------------------------------------------
-//     const imageSmall = document.querySelectorAll('.product-image-item img')
-//     const imageMain = document.querySelector('.main-image')
-//     for (let index = 0; index < imageSmall.length; index++) {
-//         imageSmall[index].addEventListener('click',()=>{
-//             imageMain.src = imageSmall[index].src
-//             for (let a = 0; a < imageSmall.length; a++) {
-//                 imageSmall[a].classList.remove('active')
-//             }
-//             imageSmall[index].classList.add('active')
-//         })
-//     }
-// function updateTotalPrice(row, qty, price) {
-//     const priceValue = parseInt(price.replace(/\./g, '').replace('₫', '').trim());
-//     const totalPriceCell = row.querySelector('td:nth-child(3) p');
-//     const newTotalPrice = priceValue * qty;
-//     totalPriceCell.innerHTML = `${newTotalPrice.toLocaleString()} <sup>₫</sup>`;
-// }
-// //quantity-product
-// const quanPlus = document.querySelectorAll('.ri-add-line');
-// const quanMinus = document.querySelectorAll('.ri-subtract-line');
-// const quanInput = document.querySelectorAll('.quantity-input');
+    const imageSmall = document.querySelectorAll('.product-image-item img')
+    const imageMain = document.querySelector('.main-image')
+    for (let index = 0; index < imageSmall.length; index++) {
+        imageSmall[index].addEventListener('click',()=>{
+            imageMain.src = imageSmall[index].src
+            for (let a = 0; a < imageSmall.length; a++) {
+                imageSmall[a].classList.remove('active')
+            }
+            imageSmall[index].classList.add('active')
+        })
+    }
+function updateTotalPrice(row, qty, price) {
+    const priceValue = parseInt(price.replace(/\./g, '').replace('₫', '').trim());
+    const totalPriceCell = row.querySelector('td:nth-child(3) p');
+    const newTotalPrice = priceValue * qty;
+    totalPriceCell.innerHTML = `${newTotalPrice.toLocaleString()} <sup>₫</sup>`;
+}
+//quantity-product
+const quanPlus = document.querySelectorAll('.ri-add-line');
+const quanMinus = document.querySelectorAll('.ri-subtract-line');
+const quanInput = document.querySelectorAll('.quantity-input');
 
-// for (let index = 0; index < quanPlus.length; index++) {
+for (let index = 0; index < quanPlus.length; index++) {
     
-//     quanPlus[index].addEventListener('click', () => {
-//         inputValue = quanInput[index].value
-//         inputValue++
-//         quanInput[index].value = inputValue
-//     });
+    quanPlus[index].addEventListener('click', () => {
+        inputValue = quanInput[index].value
+        inputValue++
+        quanInput[index].value = inputValue
+    });
 
-//     quanMinus[index].addEventListener('click', () => {
-//         inputValue = quanInput[index].value
-//         if (inputValue <= 1) {
-//             return false
-//         }
-//         else {
-//             inputValue--
-//             quanInput[index].value = inputValue
-//         }
-//     });
-// }
+    quanMinus[index].addEventListener('click', () => {
+        inputValue = quanInput[index].value
+        if (inputValue <= 1) {
+            return false
+        }
+        else {
+            inputValue--
+            quanInput[index].value = inputValue
+        }
+    });
+}
 
 
-// function updateCartCount() {
-//     fetch('/cart/count')
-//         .then(response => response.json())
-//         .then(data => {
-//             document.querySelector('.cart-number').innerText = data.cartCount;
-//         });
-// }
+function updateCartCount() {
+    fetch('/cart/count')
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector('.cart-number').innerText = data.cartCount;
+        });
+}
 
    
 

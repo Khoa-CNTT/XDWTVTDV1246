@@ -1,4 +1,4 @@
-<footer>
+
 <div class="container">
             <div class="row-grid space-end">
                 <div class="footer-item">
@@ -26,4 +26,3 @@
             </div>
             
         </div>
-</footer>

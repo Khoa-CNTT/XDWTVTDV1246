@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminBannerController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -23,6 +24,20 @@ use Illuminate\Support\Facades\Route;
     Route::get('AllProducts',[ProductsController::class,'show_allhotproduct'])->name('AllProducts');
     Route::get('/Products/{id}',[ProductsController::class,'show_product'])->name('Products/{id}');
     Route::get('/dashboard', [BannerController::class, 'index'])->name('dashboard');
+
+    // Route::get('/order_confirm',[OrderController::class,'show_orderconfirm']);
+    // Route::get('/order_success',function () {return view('shop.order_success');});
+    Route::post('/cart/add',[CartController::class,'add_cart']);
+    Route::get('/cart',[CartController::class,'show_cart']);
+    // Route::get('/shop/cart',function () {return view('shop.cart');});
+    Route::get('/cart/count', function () {
+        $cartCount = session()->get('Cart') ? array_sum(array_column(session()->get('Cart'), 'quantity')) : 0;
+        return response()->json(['cartCount' => $cartCount]);
+    });
+
+    Route::get('/cart/delete/{id}',[CartController::class,'delete_cart']);
+    Route::post('/cart/update',[CartController::class,'update_cart']);
+    Route::post('/cart/send',[CartController::class,'send_cart']);
 });
 Route::middleware('auth')->group(function () {
     
@@ -36,9 +51,7 @@ require __DIR__ . '/auth.php';
 
 Route::middleware((['auth', 'admin']))->group(function () {
     Route::get('admin/dashboard', [HomeController::class, 'index']);
-    Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
-
-    Route::get('/admin/home',[HomeController::class,'home']);
+    Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard.home');
 
     Route::post('/admin/product/add',[AdminProductController::class,'insert_product']);
     Route::get('/admin/product/create',[AdminProductController::class,'add_product']);

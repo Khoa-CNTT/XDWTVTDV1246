@@ -13,6 +13,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('frontend/asset/css/style.css') }}">
     <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
+    
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Scripts -->
@@ -41,11 +42,14 @@
             {{ $slot }}
         </main>
     </div>
-    <footer>
-        @include('part.footer')
-    </footer>
-    
+   
+    <script src="{{ asset('admin/js/script.js') }}"></script>
+    <script src="{{ asset('frontend/asset/js/script.js') }}"></script>
     <script src="{{ asset('admin/js/ajax.js') }}"></script>
+    <script src="{{ asset('admin/js/apiprovince.js') }}"></script>
+    <script src="{{ asset('frontend/asset/js/apiprovince.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 </body>
 
 </html>

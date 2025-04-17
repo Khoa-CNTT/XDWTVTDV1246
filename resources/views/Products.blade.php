@@ -11,3 +11,6 @@
 
 
 </x-app-layout>
+<footer>
+    @include('part.footer')
+</footer>
