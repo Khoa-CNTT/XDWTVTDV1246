@@ -36,14 +36,15 @@
                             <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                                 {{ __('Dashboard') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Quản Lý')">
-                                {{ __('Quản Lý') }}
+                            <x-nav-link :href="route('AllProducts')" :active="request()->routeIs('Products')">
+                                {{ __('AllProducts') }}
+
                             </x-nav-link>
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Support')">
-                                {{ __('Support') }}
+                            <x-nav-link :href="route('employee.dashboard')" :active="request()->routeIs('employee.dashboard')">
+                                {{ __('Employee') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Product')">
-                                {{ __('Product') }}
+                            <x-nav-link :href="route('admin.dashboard.home')" :active="request()->routeIs('admin.dashboard.home')">
+                                {{ __('Admin') }}
                             </x-nav-link>
                         </div>
                         <div style="padding-top: 10px;transform: translateX(17cm);" class="hearder-right-login">
@@ -72,36 +73,20 @@
                         </div>
                     </div>
                 </div>
+                {{-- <div class="min-h-screen bg-gray-100"> --}}
+                {{-- @include('layouts.navigation') --}}
             </div>
+            <!-- Page Heading -->
+
+
         </nav>
+
     </div>
     @if (Route::has('login'))
         <div class="h-14.5 hidden lg:block"></div>
     @endif
-    
-    <section class="banner">
-        <div class="banner-items">
-            <div class="banner-item">
-                <img src="{{ asset('frontend/asset/images/banner1.jpg') }}" alt="">
-            </div>
-            <div class="banner-item">
-                <img src="{{ asset('frontend/asset/images/banner2.jpg') }}" alt="">
-            </div>
-            <div class="banner-item">
-                <img src="{{ asset('frontend/asset/images/banner3.jpg') }}" alt="">
-            </div>
-            <div class="banner-item">
-                <img src="{{ asset('frontend/asset/images/banner4.jpg') }}" alt="">
-            </div>
-            <div class="banner-item">
-                <img src="{{ asset('frontend/asset/images/banner3.jpg') }}" alt="">
-            </div>
-        </div>
-        <div class="banner-arrow" style="display: none;">
-            <i class="ri-arrow-right-fill"></i>
-            <i class="ri-arrow-left-fill"></i>
-        </div>
-    </section>
+
+
 </body>
 
 </html>

@@ -4,11 +4,11 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                {{-- <div class="shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
-                </div> --}}
+                </div>
 
                 <!-- Navigation Links -->
                 
@@ -29,7 +29,7 @@
                     @endif
                     @if (Auth::check() && Auth::user()->usertype == 'admin')
                     <x-nav-link :href="route('admin.dashboard.home')" :active="request()->routeIs('admin.dashboard.home')">
-                        {{ __('Quản Lý') }}
+                        {{ __('Admin') }}
                     </x-nav-link>
                     @endif
 

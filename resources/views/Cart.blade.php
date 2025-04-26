@@ -6,6 +6,7 @@
     </x-slot>
 
     <section class="cart-secsion p-to-top">
+        
         <form action="/cart/send" method="POST">
             <div class="container">
                 <div class="row-grid">
@@ -18,14 +19,14 @@
                 <h2 class="main-h2">Căn Hộ Đã Chọn</h2>
                 @if (isset($products) && count($products) > 0)
                     <div class="cart-secsion-left-detail">
-                        <form action="/order/confirm" method="POST">
+                        {{-- <form action="/order/confirm" method="POST"> --}}
                             <table style="text-align: center;">
                                 <thead>
                                     <tr>
                                         <th>Ảnh</th>
                                         <th>Căn Hộ</th>
                                         <th>Thành Tiền</th>
-                                        <th>Đặt Ngày</th>
+                                        <th>Ngày Bắt Đầu</th>
                                         <th>Xóa</th>
                                     </tr>
                                 </thead>
@@ -33,7 +34,7 @@
                                     @php $total = 0; @endphp
                                     @foreach ($products as $product)
                                         @php
-                                            $price = $product->price_sale * Session::get('cart')[$product->id];
+                                            $price = $product->Price_sale * Session::get('cart')[$product->id];
                                             $total += $price;
                                         @endphp
                                         <tr>
@@ -77,7 +78,7 @@
 
                                                 <input type="date" name="date[{{ $product->id }}]"
                                                     value="{{ $dateValue }}"
-                                                    min="{{ \Carbon\Carbon::today()->toDateString() }}">
+                                                    min="{{ \Carbon\Carbon::today()->toDateString() }}" required>
 
                                             </td>
 
@@ -98,13 +99,13 @@
 
                                         </th>
                                         <th>
-                                            <button style="margin: 0 auto;" class="mainbutton">Thanh Toán</button>
+                                           
                                         </th>
                                     </tr>
                                 </tbody>
                             </table>
-                            @csrf
-                        </form>
+                            {{-- @csrf
+                        </form> --}}
                         <div>
 
                             <p class="note" style="color: red;">
@@ -148,6 +149,36 @@
             </div>
             @csrf
         </form>
-    </section>
+        <form action="/vnpay_payment" method="POST">
+            @csrf
+            <div style="margin: 0 auto;">                                    
+                <input type="hidden" name="total" value="{{ number_format($total) }}" type="text">
 
+                <button  type="submit" name="redirect"  class="mainbutton">Thanh Toán</button>          
+            </div>
+                                                 
+        </form>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const paymentButton = document.querySelector('form[action="/vnpay_payment"] button[type="submit"]');
+            paymentButton.addEventListener('click', function (event) {
+                const dates = document.querySelectorAll('form[action="/cart/send"] input[type="date"]');
+                let valid = true;
+        
+                dates.forEach(input => {
+                    if (!input.value) {
+                        valid = false;
+                        input.focus();
+                    }
+                });
+        
+                if (!valid) {
+                    event.preventDefault();
+                    alert('Vui lòng nhập ngày bắt đầu thuê!');
+                }
+            });
+        });
+        </script>
+        
 </x-app-layout>

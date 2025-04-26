@@ -6,6 +6,7 @@
             <div class="admin-content-main-content-left-item">
                 <div class="admin-content-main-content-two-input">
                     <input name="Name" value="{{$product -> Name}}" type="text" placeholder="Tên căn hộ">
+                    <input name="Region" value="{{$product -> Region}}" type="text" placeholder="Vị Trí">
                 </div>
                 <div class="admin-content-main-content-two-input">
                     <input name="Address" value="{{$product -> Address}}" type="text" placeholder="Địa chỉ">

@@ -598,7 +598,8 @@ footer .row-grid{
 }
 
 .product-detail-right-infor h1 {
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 25px;
 }
 .product-detail-right-price h2 {
     font-weight: bolder;

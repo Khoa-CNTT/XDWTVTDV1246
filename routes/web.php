@@ -6,6 +6,8 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
@@ -34,10 +36,12 @@ use Illuminate\Support\Facades\Route;
         $cartCount = session()->get('Cart') ? array_sum(array_column(session()->get('Cart'), 'quantity')) : 0;
         return response()->json(['cartCount' => $cartCount]);
     });
-
+    
     Route::get('/cart/delete/{id}',[CartController::class,'delete_cart']);
     Route::post('/cart/update',[CartController::class,'update_cart']);
     Route::post('/cart/send',[CartController::class,'send_cart']);
+
+    Route::get('/order/confirm',[OderController::class,'show_orderconfirm']);
 });
 Route::middleware('auth')->group(function () {
     
@@ -86,3 +90,5 @@ Route::get('/employee/dashboard', [EmployeeController::class, 'index'])->name('e
 
 Route::post('/upload',[UploadController::class,'upload']);
 Route::post('/uploads',[uploadcontroller::class,'uploadImage']);
+
+Route::post('/vnpay_payment', [PaymentController::class, 'vnpay_payment']);

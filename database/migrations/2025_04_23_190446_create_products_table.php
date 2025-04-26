@@ -24,7 +24,9 @@ return new class extends Migration
             $table->longText('Content')->nullable();
             $table->string('avatar')->nullable();
             $table->string('images')->nullable();
+            $table->string('Region')->nullable();
             $table->timestamps();
+
         });
     }
 

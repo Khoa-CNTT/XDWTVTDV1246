@@ -19,23 +19,24 @@
             </div>
             <div class="product-detail-right">
                 <div class="product-detail-right-infor">
-                    <h1 style="padding-bottom: 20px;padding-top: 25px; color: blue; margin-top: -30px">
+                    <h1 style="padding-bottom: 20px;padding-top: 25px; color: blue; margin-top: -30px;font-weight: bold">
                         {{ $product->Name }}</h1>
                     <span><span style="font-weight: bold;">Địa chỉ: </span> {{ $product->Address }} </span><span> <br>
-                    </span> <span class="color-span">Chất lượng:
+                    </span>
+                    <span><span style="font-weight: bold;">Chất lượng :</span>
                         @for ($i = 0; $i < $product->Star_rating; $i++)
                             ★
                         @endfor
                     </span>
                     <div class="hot-product-item-price">
-                        <p><span class="sale">{{ number_format($product->Price_sale) }}<sup
+                        <p><span style="font-weight: bold;">Giá Tiền : </span><span class="sale"> {{ number_format($product->Price_sale) }}<sup
                                     style="padding-right: 20px">₫</sup></span><span
                                 class="money">{{ number_format($product->Price_nomal) }}<sup>₫</sup></span> </p>
                     </div>
 
                 </div>
                 <br>
-                <h2>Thông tin căn hộ</h2>
+                <h1 style="font-size: 25px;font-weight: bold">Thông tin căn hộ</h1>
 
                 <div class="product-detail-right-price">
 
@@ -54,7 +55,7 @@
                     </div>
                 </div>
                 <div class="product-detail-right-button">
-                    <button type="submit" class="mainbutton">Đặt Ngay</button>
+                    <button type="submit" class="mainbutton" style="padding-left: 30px;padding-right: 30px">Đặt Ngay</button>
                 </div>
             </div>
         </div>

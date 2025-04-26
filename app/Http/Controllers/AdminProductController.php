@@ -20,15 +20,16 @@ class AdminProductController extends Controller
         $products->Gmail = $request->input('Gmail');
         $products->Description = $request->input('Description');
         $products->Content = $request->input('Content');
+        $products->Region = $request->input('Region');
         $products->avatar = $request->input('avatar');
         if($request->has('product_images')){
             $product_images = implode('*', $request->input('product_images'));
             $products->images = $product_images;
         }
-
+        
         // dd($request -> all());
         $products->save();
-        return redirect()->back();
+        return redirect()->with('success', 'Đã thêm slide mới!')->back();
     }
     public function list_product(){
         $products =products::all();
@@ -59,7 +60,7 @@ class AdminProductController extends Controller
     }
     public function update_product(Request $request){
         $products = products::find($request -> id);
-        $products->Name = $request->input('Name');
+        $products->Name = $request->input('Name');        
         $products->Address = $request->input('Address');
         $products->Star_rating = $request->input('Star_rating');
         $products->Price_nomal = $request->input('Price_nomal');
@@ -68,11 +69,13 @@ class AdminProductController extends Controller
         $products->Gmail = $request->input('Gmail');
         $products->Description = $request->input('Description');
         $products->Content = $request->input('Content');
+        $products->Region = $request->input('Region');
         $products->avatar = $request->input('avatar');
         if($request->has('product_images')){
             $product_images = implode('*', $request->input('product_images'));
             $products->images = $product_images;
         }
+       
         $products->save();
         return redirect('/admin/product/list');
     }
