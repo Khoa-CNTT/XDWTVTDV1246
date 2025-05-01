@@ -6,179 +6,195 @@
     </x-slot>
 
     <section class="cart-secsion p-to-top">
-        
+
         <form action="/cart/send" method="POST">
             <div class="container">
-                <div class="row-grid">
-                    {{-- <div class="row-flex row-flex-product-detail">
-                        <p class="heading-text">Giỏ Hàng</p>
-                    </div>   --}}
-                </div>
-                {{-- <div class="row-grid" style="text-align: center;"> --}}
-                {{-- <div class="cart-secsion-left"> --}}
-                <h2 class="main-h2">Căn Hộ Đã Chọn</h2>
-                @if (isset($products) && count($products) > 0)
-                    <div class="cart-secsion-left-detail">
-                        {{-- <form action="/order/confirm" method="POST"> --}}
-                            <table style="text-align: center;">
-                                <thead>
-                                    <tr>
-                                        <th>Ảnh</th>
-                                        <th>Căn Hộ</th>
-                                        <th>Thành Tiền</th>
-                                        <th>Ngày Bắt Đầu</th>
-                                        <th>Xóa</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="deleta-table">
-                                    @php $total = 0; @endphp
-                                    @foreach ($products as $product)
-                                        @php
-                                            $price = $product->Price_sale * Session::get('cart')[$product->id];
-                                            $total += $price;
-                                        @endphp
+                <div class="row-grid" style="text-align: center;">
+                    <div class="cart-secsion-left">
+                        <h2 class="main-h2">Căn Hộ Đã Chọn</h2>
+                        @if (isset($products) && count($products) > 0)
+                            <div class="cart-secsion-left-detail">
+                                {{-- <form action="/order/confirm" method="POST"> --}}
+                                <table style="text-align: center;">
+                                    <thead>
                                         <tr>
-                                            <td><img style="width: 100px;" src="{{ asset($product->avatar) }}"
-                                                    alt=""></td>
-                                            <td>
-                                                <div class="product-detail-right-infor">
-                                                    <h1>{{ $product->Name }}</h1>
-                                                    <div class="hot-product-item-price">
-                                                        <p>
-                                                            <span
-                                                                class="sale">{{ number_format($product->Price_sale) }}<sup>₫</sup></span>
-                                                            <span
-                                                                class="money">{{ number_format($product->Price_nomal) }}<sup>₫</sup></span>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="product-detail-right-quantity">
-                                                    <p>Số Ngày Thuê</p>
-                                                    <div class="product-detail-right-quantity-input">
-                                                        <i class="ri-subtract-line"></i>
-                                                        <input onkeydown="return false"
-                                                            name="product_id[{{ $product->id }}]"
-                                                            class="quantity-input" type="number"
-                                                            value="{{ Session::get('cart')[$product->id] }}">
-                                                        <i class="ri-add-line"></i>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                                <p>{{ number_format($price) }} <sup>₫</sup></p>
-                                            </td>
-                                            <td>
-                                                @php
-                                                    $dateValue =
-                                                        old('date.' . $product->id) ??
-                                                        (Session::get('dates')[$product->id] ?? '');
-                                                @endphp
-
-                                                <input type="date" name="date[{{ $product->id }}]"
-                                                    value="{{ $dateValue }}"
-                                                    min="{{ \Carbon\Carbon::today()->toDateString() }}" required>
-
-                                            </td>
-
-                                            <td><a href="/cart/delete/{{ $product->id }}"><i
-                                                        class="ri-close-circle-line"></i></a></td>
+                                            <th>Ảnh</th>
+                                            <th>Căn Hộ</th>
+                                            <th>Thành Tiền</th>
+                                            <th>Xóa</th>
                                         </tr>
-                                    @endforeach
-                                    <tr style="background-color: burlywood">
+                                    </thead>
+                                    <tbody class="deleta-table">
+                                        @php $total = 0; @endphp
+                                        @foreach ($products as $product)
+                                            @php
+                                                $total += $product->Price_sale;
+                                            @endphp
+                                            <tr>
+                                                <td><img style="width: 100px;" src="{{ asset($product->avatar) }}"
+                                                        alt="">
+                                                        <input type="hidden" name="product_id[]" value="{{ $product->id }}">
+                                                    </td>
+                                                <td>
+                                                    <div class="product-detail-right-infor">
+                                                        <h1>{{ $product->Name }}</h1>
+                                                        <br>
+                                                        <div class="hot-product-item-price">
+                                                            <p>
+                                                                <span
+                                                                    class="sale">{{ number_format($product->Price_sale) }}<sup>₫</sup></span>
+                                                                <span
+                                                                    class="money">{{ number_format($product->Price_nomal) }}<sup>₫</sup></span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
 
-                                        <th colspan="2">Tổng Tiền</th>
-                                        <th colspan="1">{{ number_format($total) }}<sup>₫</sup></th>
-                                        <th colspan="1" style="text-align: center">
 
-                                            <button style="margin: 0 auto;" formaction="/cart/update"
+
+                                                </td>
+
+                                                <td>
+                                                    <p>{{ number_format($product->Price_sale) }} <sup>₫</sup></p>
+                                                    <input type="hidden" class="price-per-day" value="{{ $product->Price_sale }}">
+
+                                                </td>
+
+
+                                                <td><a href="/cart/delete/{{ $product->id }}"><i
+                                                            class="ri-close-circle-line"></i></a></td>
+                                            </tr>
+                                        @endforeach
+                                        <tr style="background-color: burlywood">
+
+                                            <th colspan="2">Tổng Tiền</th>
+                                            <th colspan="1"><span id="total-display">{{ number_format($total) }}</span><sup>₫</sup>
+                                                <input type="hidden" name="total" id="total" value="{{ $total }}">
+                                            </th>
+                                            <th colspan="1" style="text-align: center">
+
+                                                {{-- <button style="margin: 0 auto;" formaction="/cart/update"
                                                 class="mainbutton">Cập
                                                 Nhật Giỏ Hàng
-                                            </button>
+                                            </button> --}}
 
-                                        </th>
-                                        <th>
-                                           
-                                        </th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            {{-- @csrf
+                                            </th>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                {{-- @csrf
                         </form> --}}
-                        <div>
+                                <div>
 
-                            <p class="note" style="color: red;">
-                                <span style="font-weight: bold;">Lưu ý:</span>
-                                <span style="font-style: italic; font-size: 12px; ">
-                                    Giờ trả phòng của chúng tôi là 10:00 sáng. Quý khách vui lòng lưu ý thời gian để
-                                    tránh phát sinh chi phí ngoài ý muốn. Xin chân thành cảm ơn!
-                                </span>
-                            </p>
-                        </div>
-                        <!-- Nút cập nhật giỏ hàng -->
+                                    <p class="note" style="color: red;text-align: left;">
+                                        <span style="font-weight: bold;">Lưu ý:</span>
+                                        <span style="font-style: italic; font-size: 12px; ">
+                                            Giờ trả phòng của chúng tôi là 10:00 sáng. Quý khách vui lòng lưu ý thời
+                                            gian để tránh phát sinh chi phí ngoài ý muốn. Xin chân thành cảm ơn!
+                                        </span>
+                                    </p>
+                                </div>
+                                <!-- Nút cập nhật giỏ hàng -->
+
+                            </div>
+                        @else
+                            <p>Giỏ hàng của bạn hiện đang trống. <a href="/AllProducts" style="color: blue;"> Xem Sản
+                                    Phẩm</a>.</p>
+                        @endif
 
                     </div>
-                @else
-                    <p>Giỏ hàng của bạn hiện đang trống. <a href="/shop" style="color: blue;"> Xem Sản Phẩm</a>.</p>
-                @endif
-
-                {{-- </div> --}}
-                {{-- <div class="cart-secsion-right">
-                        <h2 class="main-h2">Thông Tin Khách Hàng</h2>
+                    <div class="cart-secsion-right">
+                        <h2 class="main-h2">Thông Tin Ngày Thuê</h2>
                         <form action="/order/confirm" method="POST">
-                            <div class="cart-secsion-right-input-name-phone">
-                                <input type="text" placeholder="Tên" name="name">
-                                <input type="text" placeholder="Điện Thoại" name="phone">
+                            <div class="cart-section-right-input-dates">
+                                <div class="cart-section-right-input-day-checkin">
+                                    <p>Ngày Nhận Căn Hộ</p>
+                                    <input type="date" name="day_checkin" id="day_checkin" min="{{ date('Y-m-d') }}" required>
+                                </div>
+                                <div class="cart-section-right-input-day-checkout">
+                                    <p>Ngày Trả Căn Hộ</p>
+                                    <input type="date" name="day_checkout" id="day_checkout" min="{{ date('Y-m-d') }}" required>
+                                </div>
                             </div>
-                            <div class="cart-secsion-right-input-email">
-                                <input type="email" placeholder="Email" name="email" id="">
-                            </div>
+                            <p style="text-align: left;margin-bottom: 5px;font-weight: bold; padding-top: 30px">Ghi chú
+                                thêm</p>
                             <div class="cart-secsion-right-input-note">
                                 <input type="text" placeholder="Ghi chú" name="note" id="">
                             </div>
-                            <div class="cart-secsion-right-input-adress">
-                                <P>Thời Gian Nhận Phòng</P>
-                                <input type="date" placeholder="Thời Gian" name="date" id="">
+
+                            <div class="cart-secsion-right-button">
+                                <button class="mainbutton">Thanh Toán</button>
                             </div>
-                            <button class="mainbutton">Gửi Đơn Hàng</button>
                             @csrf
                         </form>
-                    </div> --}}
-                {{-- </div>  --}}
+                    </div>
+                </div>
             </div>
             @csrf
-        </form>
-        <form action="/vnpay_payment" method="POST">
-            @csrf
-            <div style="margin: 0 auto;">                                    
-                <input type="hidden" name="total" value="{{ number_format($total) }}" type="text">
-
-                <button  type="submit" name="redirect"  class="mainbutton">Thanh Toán</button>          
-            </div>
-                                                 
         </form>
     </section>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const paymentButton = document.querySelector('form[action="/vnpay_payment"] button[type="submit"]');
-            paymentButton.addEventListener('click', function (event) {
-                const dates = document.querySelectorAll('form[action="/cart/send"] input[type="date"]');
-                let valid = true;
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkin = document.getElementById("day_checkin");
+            const checkout = document.getElementById("day_checkout");
+            const totalDisplay = document.getElementById("total-display");
         
-                dates.forEach(input => {
-                    if (!input.value) {
-                        valid = false;
-                        input.focus();
-                    }
-                });
+            function calculateTotal() {
+                const checkInDate = new Date(checkin.value);
+                const checkOutDate = new Date(checkout.value);
         
-                if (!valid) {
-                    event.preventDefault();
-                    alert('Vui lòng nhập ngày bắt đầu thuê!');
+                if (checkin.value && checkout.value && checkOutDate > checkInDate) {
+                    const days = Math.floor((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+                    let total = 0;
+        
+                    document.querySelectorAll('.price-per-day').forEach(el => {
+                        const price = parseInt(el.value);
+                        total += price * days;
+                    });
+        
+                    totalDisplay.textContent = total.toLocaleString('vi-VN');
                 }
-            });
+            }
+        
+            checkin.addEventListener("change", calculateTotal);
+            checkout.addEventListener("change", calculateTotal);
         });
         </script>
-        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const checkin = document.getElementById("day_checkin");
+                const checkout = document.getElementById("day_checkout");
+                const form = document.querySelector('form[action="/order/confirm"]');
+            
+                form.addEventListener("submit", function (e) {
+                    if (!checkin.value || !checkout.value) {
+                        alert("Vui lòng nhập đầy đủ ngày nhận và ngày trả.");
+                        e.preventDefault();
+                        return;
+                    }
+            
+                    const inDate = new Date(checkin.value);
+                    const outDate = new Date(checkout.value);
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+            
+                    if (inDate < today) {
+                        alert("Ngày nhận không được nhỏ hơn hôm nay.");
+                        e.preventDefault();
+                        return;
+                    }
+            
+                    const minCheckout = new Date(inDate);
+                    minCheckout.setDate(minCheckout.getDate() + 1);
+            
+                    if (outDate < minCheckout) {
+                        alert("Ngày trả phải sau ngày nhận ít nhất 1 ngày.");
+                        e.preventDefault();
+                        return;
+                    }
+                });
+            });
+            </script>
+            
+            
 </x-app-layout>

@@ -665,10 +665,10 @@ input::-webkit-inner-spin-button {
 
 /*cart-secsion*---------------------------------------------------------------------------*/
 
-/* .cart-secsion .row-grid{
+.cart-secsion .row-grid{
     grid-template-columns: 60% 40%;
     column-gap: 30px;
-} */
+}
 .cart-secsion table{
     width: 100%;
     border-collapse: collapse;
@@ -701,7 +701,7 @@ input::-webkit-inner-spin-button {
 .cart-secsion table tbody tr td:last-child:hover {
     color: red
 }
-/* .cart-secsion-right input{
+.cart-secsion-right input{
     height: 35px;
     border: none;
     background-color: rgba(191, 187, 187, 0.478);
@@ -709,8 +709,8 @@ input::-webkit-inner-spin-button {
     padding-left: 12px;
     border-radius: var(--main-border-radius);
     
-} */
-/* .cart-secsion-right select{
+}
+ .cart-secsion-right select{
     height: 35px;
     border: none;
     background-color: rgba(191, 187, 187, 0.478);
@@ -720,26 +720,36 @@ input::-webkit-inner-spin-button {
     width: 30%;
     
 }
-.cart-secsion-right-select {
+.cart-section-right-input-dates {
     display: flex;
-    justify-content: space-between;
+    gap: 20px; /* khoảng cách giữa 2 ô */
+    align-items: flex-start; /* căn trên nếu p và input không bằng chiều cao */
 }
-.cart-secsion-right-input-name-phone {
-    display: flex;
-    justify-content: space-between;
+
+.cart-section-right-input-day-checkin,
+.cart-section-right-input-day-checkout {
+    flex: 1; /* mỗi bên chiếm 50% nếu muốn đều nhau */
 }
-.cart-secsion-right-input-name-phone input{
-    width: 49%;
+
+.cart-section-right-input-day-checkin p,
+.cart-section-right-input-day-checkout p {
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 25px;
 }
-.cart-secsion-right-input-adress input{
+
+input[type="date"] {
     width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
 }
+
 .cart-secsion-right-input-note input{
     width: 100%;
+    
 }
-.cart-secsion-right-input-email input{
-    width: 100%;
-} */
+
 
 input[type="date"] {
     width: 200px; /* Kích thước của input */
@@ -769,6 +779,10 @@ input[type="date"] {
     padding-top: 50px;
     right: 5px;
     margin-right: 5px;
+}
+.cart-secsion-right-button{
+    padding-top: 20%;
+    padding-left: 40%;
 }
 /*order-confirm-content*/
 .order-confirm-content {

@@ -8,14 +8,19 @@
                     {{ $name }} #{{ $vnp_TxnRef }}
                 </span>
             </p>
-            
+            {{-- <p>                
+                <br>
+                <span>
+                    {{$Product->Name }}
+                </span>
+            </p> --}}
         </div> 
         <div class="row-flex">
             <div class="order-confirm-content">
 
-                <p>Đơn hàng của bạn đang chờ  <span style="font-weight: bold;">ADMIN xác nhận</span> đơn hàng <br>
+                <p>Đơn hàng của bạn đà thành công, chúng tôi sẽ <span style="font-weight: bold;color: red">"không hoàn tiền lại"</span> nếu bạn hủy đơn hàng <br>
                     
-                    <span style="font-size: small;" >Vui lòng đợi chờ trong ít phút</span></p>
+                    <span style="font-size: small;" >Cảm ơn bạn đã tin tưởng vào sử dụng dịch vụ của chúng tôi</span></p>
                 <br>
                 <br>
                 <a href="/dashboard" class="button">Quay Lại Trang Chủ</a>  

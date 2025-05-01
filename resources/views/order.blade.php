@@ -6,7 +6,7 @@
     </x-slot>
 
 <section class="product-detail p-to-top">
-   @include('part.confirm')
+   @include('part.success')
 </section>
 
 

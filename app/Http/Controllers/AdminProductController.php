@@ -29,7 +29,7 @@ class AdminProductController extends Controller
         
         // dd($request -> all());
         $products->save();
-        return redirect()->with('success', 'Đã thêm slide mới!')->back();
+        return redirect('/admin/product/list');
     }
     public function list_product(){
         $products =products::all();

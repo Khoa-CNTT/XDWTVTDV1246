@@ -110,19 +110,21 @@ function removeRows(slide_id, url) {
     }
 }
 
-
 function removeRowOD(order_id, url) {
-    if (confirm("Bạn Có Chắc Chán Xóa?")) {
+    if (confirm("Bạn Có Chắc Chắn Xóa?")) {
         $.ajax({
             url: url,
-            data: { order_id },
-            method: 'GET',
-            dataType: 'JSON',
+            type: 'POST',
+            data: {
+                order_id: order_id,
+                _token: $('meta[name="csrf-token"]').attr('content') // Gửi CSRF token nếu dùng Laravel
+            },
+            dataType: 'json',
             success: function (res) {
-                if (res.success == true) {
+                if (res.success === true) {
                     setTimeout(function () {
                         location.reload();
-                    }, 2000);
+                    }, 1000);
                 } else {
                     alert("Có lỗi xảy ra. Vui lòng thử lại.");
                 }

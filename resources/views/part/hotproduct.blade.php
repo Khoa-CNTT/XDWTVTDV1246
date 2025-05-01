@@ -24,9 +24,11 @@
                     <span><span style="font-weight: bold;">Địa chỉ: </span> {{ $product->Address }} </span><span> <br>
                     </span>
                     <span><span style="font-weight: bold;">Chất lượng :</span>
+                    <span style="color: rgb(189, 189, 3)">
                         @for ($i = 0; $i < $product->Star_rating; $i++)
                             ★
                         @endfor
+                    </span>
                     </span>
                     <div class="hot-product-item-price">
                         <p><span style="font-weight: bold;">Giá Tiền : </span><span class="sale"> {{ number_format($product->Price_sale) }}<sup
@@ -44,28 +46,19 @@
                         {!! nl2br(e($product->Description)) !!}
                     </ul>
                 </div>
-                <div class="product-detail-right-quantity">
-                    <h2>Số Ngày Thuê Căn Hộ</h2>
-                    <div class="product-detail-right-quantity-input">
-                        <i class="ri-subtract-line"></i>
-                        <input onkeyDown="return false" class="quantity-input" name="product_qty" type="number"
-                            value="1">
-                        <input type="hidden" value="{{ $product->id }}" name="product_id">
-                        <i class="ri-add-line"></i>
-                    </div>
-                </div>
-                <div class="product-detail-right-button">
+                <div style="padding-top: 100px" class="product-detail-right-button">
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <button type="submit" class="mainbutton" style="padding-left: 30px;padding-right: 30px">Đặt Ngay</button>
                 </div>
             </div>
         </div>
-        <div class="row-flex">
+        <div class="row-flex" style="padding-bottom: 100px;">
             <div class="product-detail-content">
                 <h2>Mô tả chi tiết</h2>
                 <p>
-                    {{ $product->Content }}
+                    {!! nl2br(e($product->Content )) !!}
                 </p>
-                <img src="" alt="">
+                
             </div>
         </div>
     </div>

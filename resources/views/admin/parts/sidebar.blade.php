@@ -4,11 +4,11 @@
                           <ul class="sub-menu">
                               <div class="sub-menu-item">
 
-                                  <li><a href="/admin/home"><i class="ri-arrow-right-s-fill"></i>Tổng quát</a></li>
+                                  <li><a href="/admin/dashboard"><i class="ri-arrow-right-s-fill"></i>Tổng quát</a></li>
                               </div>
                           </ul>
                       </li>
-                      <li><a href=""><i class="ri-file-list-line"></i>Sản Phẩm<i class="ri-add-box-line"></i></a>
+                      <li><a href=""><i class="ri-file-list-line"></i>Quản Lý Căn Hộ<i class="ri-add-box-line"></i></a>
                           <ul class="sub-menu">
                               <div class="sub-menu-item">
                                   <li><a href="/admin/product/list"><i class="ri-arrow-right-s-fill"></i>Danh Sách</a>
@@ -17,7 +17,7 @@
                               </div>
                           </ul>
                       </li>
-                      <li><a href=""><i class="ri-file-list-line"></i>Đơn Hàng<i class="ri-add-box-line"></i></a>
+                      <li><a href=""><i class="ri-file-list-line"></i>Quản Lý Đơn Hàng<i class="ri-add-box-line"></i></a>
                           <ul class="sub-menu">
                               <div class="sub-menu-item">
                                   <li><a href="/admin/order/list"><i class="ri-arrow-right-s-fill"></i>Đơn Hàng</a></li>
@@ -37,11 +37,11 @@
                               </div>
                           </ul>
                       </li>
-                      <li><a href=""><i class="ri-file-list-line"></i>Account<i class="ri-add-box-line"></i></a>
+                      <li><a href=""><i class="ri-file-list-line"></i>Quản Lý Tài Khoản<i class="ri-add-box-line"></i></a>
                           <ul class="sub-menu">
                               <div class="sub-menu-item">
                                   <li>
-                                      <a href="/admin/account/list"><i class="ri-arrow-right-s-fill"></i>Danh Sách Account</a>
+                                      <a href="/admin/account/list"><i class="ri-arrow-right-s-fill"></i>Cấp Quyền</a>
                                   </li>
 
                               </div>
