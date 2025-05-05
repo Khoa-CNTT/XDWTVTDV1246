@@ -15,16 +15,19 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
 Route::get('/dashboard', [BannerController::class, 'index'])->name('dashboard');
+Route::get('/', [BannerController::class, 'index'])->name('dashboard');
+Route::get('AllProducts', [ProductsController::class, 'show_allhotproduct'])->name('AllProducts');
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     // Route::get('/Products',  [ProductsController::class, 'index']);
-    Route::get('AllProducts', [ProductsController::class, 'show_allhotproduct'])->name('AllProducts');
+    
     Route::get('/Products/{id}', [ProductsController::class, 'show_product'])->name('Products/{id}');
     // Route::get('/dashboard', [BannerController::class, 'index'])->name('dashboard');
 

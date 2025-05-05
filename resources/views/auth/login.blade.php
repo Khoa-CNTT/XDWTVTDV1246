@@ -3,7 +3,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
-        <h1 class="text-2xl font-bold text-center mb-6">Login</h1>
+        <h1 class="text-2xl font-bold text-center mb-6">Đăng Nhập</h1>
         @csrf
 
         <!-- Email Address -->
@@ -26,22 +26,29 @@
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
+        <div  class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                <span class="ms-2 text-sm text-gray-600">{{ __('Nhớ Mật Khẩu') }}</span>
             </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                @if (Route::has('password.request'))
+                <a style="margin-left: 150px;color: blue" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                    {{ __('Quên Mật Khẩu?') }}
                 </a>
             @endif
+            
+        </div>
+        
+        <div style="margin-top:50px " class="flex items-center justify-end mt-4">
+            <p style="margin-right: 60px" class="text-sm text-gray-600">
+                {{ __('Bạn Chưa có Tài Khoản?') }}
+                <a style="color: blue" href="{{ route('register') }}" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    {{ __('Đăng ký') }}
+                </a>
+            </p>
 
             <x-primary-button class="ms-3">
-                {{ __('Log in') }}
+                {{ __('Đăng Nhập') }}
             </x-primary-button>
         </div>
     </form>

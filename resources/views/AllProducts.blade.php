@@ -20,14 +20,16 @@
                                 {{$product -> Name}}
                             </a>
                         </p>
-                    <span class="color-span">
+                    <span class="color-span"><span style="color: black">Địa chỉ: </span>
                         {{$product -> Address}}
                     </span>
                     <br>
-                    <span class="color-span">Chất lượng: 
-                        @for ($i = 0; $i < $product->Star_rating; $i++)
+                    <span class="color-span"> <span style="color: black">Chất lượng: </span>
+                        <span style="color: rgb(189, 189, 3)">
+                            @for ($i = 0; $i < $product->Star_rating; $i++)
                         ★
                         @endfor
+                        </span>
                     </span>
                     <div class="hot-product-item-price">
                         <p>

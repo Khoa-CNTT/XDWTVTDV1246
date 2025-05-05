@@ -2,16 +2,15 @@
 <div class="container">
             <div class="row-grid space-end">
                 <div class="footer-item">
-                    <p>ĐỨC VIỆT</p>
+                    <p>LUSHVILLA</p>
                     <p>Đăng kí thành viên</p>
                     <p>Ưu đãi đặc quyền</p>
                 </div>
                 <div class="footer-item">
                     <p>CHÍNH SÁCH</p>
-                    <p>Đổi trả 3 ngày</p>
                     <p>Chính sách khuyến mãi<p>
                     <p>Chính sách bảo mật<p>
-                    <p>Chính sách giao hàng<p>
+                    <p>Chính sách hỗ trợ<p>
                 </div>
                 <div class="footer-item">
                     <p>CHĂM SÓC KHÁCH HÀNG</p>
