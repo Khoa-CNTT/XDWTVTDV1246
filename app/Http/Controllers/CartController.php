@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-use App\Models\orders;
+use App\Models\Orders;
 use App\Models\products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -96,7 +96,7 @@ class CartController extends Controller
         $user = Auth::user();
         $token = Str::random(12);
         $order = new orders();
-
+        $order->user_id = $user->id;
         $order->username = $user->name;
         $order->email = $user->email;
         $order->day_checkin = $request->input('day_checkin');

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -34,18 +34,18 @@
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                             <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                                {{ __('Dashboard') }}
+                                {{ __('Trang Chủ') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('AllProducts')" :active="request()->routeIs('Products')">
-                                {{ __('AllProducts') }}
-
-                            </x-nav-link>
+                            <x-nav-link :href="route('AllProducts')" :active="request()->routeIs('AllProducts')">
+                                {{ __('Sản Phẩm') }}
+                            </x-nav-link>                            
                             <x-nav-link :href="route('employee.dashboard')" :active="request()->routeIs('employee.dashboard')">
                                 {{ __('Employee') }}
                             </x-nav-link>
                             <x-nav-link :href="route('admin.dashboard.home')" :active="request()->routeIs('admin.dashboard.home')">
-                                {{ __('Admin') }}
+                                {{ __('Quản Lý') }}
                             </x-nav-link>
+                            
                         </div>
                         <div style="padding-top: 10px;transform: translateX(17cm);" class="hearder-right-login">
                             @if (Route::has('login'))

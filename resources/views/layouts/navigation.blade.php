@@ -14,14 +14,17 @@
                 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Home') }}
+                        {{ __('Trang Chủ') }}
                     </x-nav-link>
                     <x-nav-link :href="route('AllProducts')" :active="request()->routeIs('AllProducts')">
-                        {{ __('Products') }}
+                        {{ __('Sản Phẩm') }}
                     </x-nav-link>
                     {{-- <x-nav-link :href="route('Products')" :active="request()->routeIs('Support')">
                         {{ __('Support') }}
                     </x-nav-link> --}}
+                    <x-nav-link :href="route('OrderHistory')" :active="request()->routeIs('OrderHistory')">
+                        {{ __('Đơn Mua') }}
+                    </x-nav-link>
                     @if (Auth::check() && Auth::user()->usertype == 'employee')
                     <x-nav-link :href="route('employee.dashboard')" :active="request()->routeIs('employee.dashboard')">
                         {{ __('Nhân Viên') }}

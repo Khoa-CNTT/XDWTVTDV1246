@@ -27,7 +27,7 @@
                           </ul>
                       </li>
 
-                      <li><a href=""><i class="ri-file-list-line"></i>Slide<i class="ri-add-box-line"></i></a>
+                      <li><a href=""><i class="ri-file-list-line"></i>Quản Lý Bài Viết<i class="ri-add-box-line"></i></a>
                           <ul class="sub-menu">
                               <div class="sub-menu-item">
                                   <li><a href="/admin/slide/list"><i class="ri-arrow-right-s-fill"></i>Danh Sách

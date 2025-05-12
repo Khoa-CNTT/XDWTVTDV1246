@@ -27,7 +27,7 @@
                 <h3 style="color: black;font-weight: bold;">Quyền Muốn Cấp</h3>
                 <select name="usertype" id="usertype" style="border-radius: 10px">
                     <option value="user" {{ $user->usertype == 'user' ? 'selected' : '' }}>Tài Khoản Người dùng</option>
-                    <option value="employee" {{ $user->usertype == 'employee' ? 'selected' : '' }}>Tài Khoản Nhân Viên</option>
+                    {{-- <option value="employee" {{ $user->usertype == 'employee' ? 'selected' : '' }}>Tài Khoản Nhân Viên</option> --}}
                     <option value="admin" {{ $user->usertype == 'admin' ? 'selected' : '' }}>Quản trị viên</option>
                 </select>
                 

@@ -1,4 +1,4 @@
-  <?php
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable(); // id của người dùng
             $table->string('username')->nullable();
             $table->string('email')->nullable();
             $table->date('day_checkin')->nullable();
@@ -23,8 +24,8 @@ return new class extends Migration
             $table->string('token')->nullable();
             $table->enum('status', ['pending', 'paid', 'failed'])->default('pending');
             $table->timestamps();
+
         });
-     
     }
 
     /**

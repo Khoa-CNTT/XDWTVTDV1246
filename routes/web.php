@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OderController;
+use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UploadController;
@@ -26,7 +27,7 @@ Route::get('AllProducts', [ProductsController::class, 'show_allhotproduct'])->na
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
-    // Route::get('/Products',  [ProductsController::class, 'index']);
+    Route::get('/OrderHistory',  [OrderHistoryController::class, 'index'])->name('OrderHistory');
     
     Route::get('/Products/{id}', [ProductsController::class, 'show_product'])->name('Products/{id}');
     // Route::get('/dashboard', [BannerController::class, 'index'])->name('dashboard');

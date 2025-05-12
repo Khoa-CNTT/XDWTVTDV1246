@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class orders extends Model
+class Orders extends Model
 {
     protected $fillable = [
         'username',
@@ -17,4 +17,5 @@ class orders extends Model
         'token',
         'status'
     ];
+
 }
