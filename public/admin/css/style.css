@@ -293,6 +293,23 @@ li {
     border: 2px solid black;
     border-radius: var(--main-border-darius);
 }
+.admin-content-main-content-article-add .baiviet {
+    height: 450px;
+    width: 95%;
+    margin-bottom: 20px;
+    outline: none;
+    padding: 6px;
+    border: 2px solid black;
+    border-radius: var(--main-border-darius);
+    margin-left: 20px;
+}
+
+.admin-content-main-content-article-add h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2504fd;
+    margin-left: 40%;
+}
 .admin-content-main-content-image input{
     display: none;
 }

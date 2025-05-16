@@ -34,6 +34,10 @@
                                           Banner</a></li>
                                   <li><a href="/admin/slide/create"><i class="ri-arrow-right-s-fill"></i>Thêm Banner</a>
                                   </li>
+                                  <li><a href="/admin/article/list"><i class="ri-arrow-right-s-fill"></i>Danh Sách
+                                          Bài Viết</a></li>
+                                  <li><a href="/admin/article/create"><i class="ri-arrow-right-s-fill"></i>Thêm Bài Viết</a>
+                                  </li>
                               </div>
                           </ul>
                       </li>

@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> --}}
+                        <img style="width: 70px; height: 50px" src="{{asset('frontend/asset/images/logolushvilla.png')}}" alt="">
                     </a>
                 </div>
 
@@ -22,9 +23,11 @@
                     {{-- <x-nav-link :href="route('Products')" :active="request()->routeIs('Support')">
                         {{ __('Support') }}
                     </x-nav-link> --}}
+                    @if (Auth::check() && Auth::user()->usertype == 'user')
                     <x-nav-link :href="route('OrderHistory')" :active="request()->routeIs('OrderHistory')">
                         {{ __('Đơn Mua') }}
                     </x-nav-link>
+                    @endif
                     @if (Auth::check() && Auth::user()->usertype == 'employee')
                     <x-nav-link :href="route('employee.dashboard')" :active="request()->routeIs('employee.dashboard')">
                         {{ __('Nhân Viên') }}

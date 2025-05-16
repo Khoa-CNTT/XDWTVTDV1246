@@ -16,7 +16,7 @@ class AdminBannerController extends Controller
         }
         // dd($request -> all());
         $banners->save();
-        return redirect()->back();
+        return redirect('/admin/slide/list');
     }
 
 

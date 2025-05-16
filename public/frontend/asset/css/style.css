@@ -409,8 +409,62 @@ input{
 
 
 /* slider*/
+.article-content {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgb(0 0 0 / 0.1);
+    /* max-width: 600px; */
+    margin: 30px auto;
+    color: #00060c;
+    line-height: 1.6;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+}
 
+.article-content p, 
+.article-content span {
+    display: block;
+    margin-bottom: 14px;
+}
 
+.article-content strong {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 18px;
+}
+
+.article-contact {
+     justify-content: center;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #e74c3c;
+    display: flex;
+    align-items: center;
+}
+
+.article-contact span:first-child {
+    margin-right: 8px;
+    font-size: 22px;
+}
+
+/* Hiệu ứng hover cho phần liên hệ */
+.article-contact:hover {
+    color: #c0392b;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.content-name-villa h1 {
+    font-weight: bolder;
+    font-size: 150px;
+    margin: -80px 0 0 0;    
+    text-align: center;
+    background: linear-gradient(90deg, red, red, yellow, green, cyan, blue, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .banner{
     max-height: 100%;
     max-width: 100%;
@@ -908,3 +962,123 @@ input[type="date"] {
         row-gap: 20px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@property --blur-start {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 40%;
+}
+
+@property --blur-strength {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 12px;
+}
+
+.prog-blur {
+  height: 360px;
+  width: 240px;
+
+  position: relative;
+
+  /*   clip the blurred element */
+  overflow: clip;
+}
+
+.prog-blur::after {
+  /*   position the after element right above the prog-blur element */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+
+  margin: calc(var(--blur-strength) * -0.5);
+
+  /*   create a gradient mask to achieve progressive effect */
+  mask-image: linear-gradient(to top, black var(--blur-start), transparent);
+
+  filter: blur(var(--blur-strength));
+  scale: 1.15;
+}
+
+.prog-blur,
+.prog-blur::after {
+  border-radius: 20px;
+
+  transition: all 300ms ease-in-out 100ms;
+}
+
+.prog-blur:hover::after {
+  --blur-start: -100%;
+}
+
+.image-1,
+.image-1::after {
+  background: url(https://images.unsplash.com/photo-1744190070346-f0d4ab0d2b86?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDY4MTU5NDF8&ixlib=rb-4.1.0&q=85)
+    no-repeat center center / cover;
+}
+
+.image-2,
+.image-2::after {
+  background: url(https://images.unsplash.com/photo-1740182855804-df51f010ff7f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDY4MTc1Nzh8&ixlib=rb-4.1.0&q=85)
+    no-repeat center center / cover;
+}
+
+.image-3,
+.image-3::after {
+  background: url(https://images.unsplash.com/photo-1744125275850-822335d2f621?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDY4MTc1Nzh8&ixlib=rb-4.1.0&q=85)
+    no-repeat center center / cover;
+}
+.image-4,
+.image-4::after {
+  background: url(https://images.unsplash.com/photo-1744125275850-822335d2f621?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDY4MTc1Nzh8&ixlib=rb-4.1.0&q=85)
+    no-repeat center center / cover;
+}
+.image-5,
+.image-5::after {
+  background: url(https://images.unsplash.com/photo-1744125275850-822335d2f621?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDY4MTc1Nzh8&ixlib=rb-4.1.0&q=85)
+    no-repeat center center / cover;
+}
+.containerrr {
+  display: flex;
+  gap: 20px; /* khoảng cách giữa ảnh */
+  justify-content: center; /* căn giữa theo ngang */
+  align-items: center; /* căn giữa theo dọc nếu cần */
+}
+

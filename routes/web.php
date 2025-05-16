@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminArticleController;
 use App\Http\Controllers\AdminBannerController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AdminProductController;
@@ -23,13 +24,13 @@ Route::get('/dashboard', function () {return view('dashboard');})->name('dashboa
 Route::get('/dashboard', [BannerController::class, 'index'])->name('dashboard');
 Route::get('/', [BannerController::class, 'index'])->name('dashboard');
 Route::get('AllProducts', [ProductsController::class, 'show_allhotproduct'])->name('AllProducts');
-
+ Route::get('/Products/{id}', [ProductsController::class, 'show_product'])->name('Products/{id}');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::get('/OrderHistory',  [OrderHistoryController::class, 'index'])->name('OrderHistory');
     
-    Route::get('/Products/{id}', [ProductsController::class, 'show_product'])->name('Products/{id}');
+   
     // Route::get('/dashboard', [BannerController::class, 'index'])->name('dashboard');
 
     // Route::get('/order_confirm',[OrderController::class,'show_orderconfirm']);
@@ -78,6 +79,13 @@ Route::middleware((['auth', 'admin']))->group(function () {
     Route::get('admin/slide/delete', [AdminBannerController::class, 'delete_banner']);
     Route::get('admin/slide/edit/{id}', [AdminBannerController::class, 'edit_banner']);
     Route::post('admin/slide/edit/{id}', [AdminBannerController::class, 'update_banner']);
+
+    Route::post('admin/article/add', [AdminArticleController::class, 'insert_article']);
+    Route::get('admin/article/create', [AdminArticleController::class, 'add_article']);
+    Route::get('admin/article/list', [AdminArticleController::class, 'list_article']);
+    Route::get('admin/article/delete', [AdminArticleController::class, 'delete_article']);
+    Route::get('admin/article/edit/{id}', [AdminArticleController::class, 'edit_article']);
+    Route::post('admin/article/edit/{id}', [AdminArticleController::class, 'update_article']);
 
     Route::get('admin/account/list', [UserController::class, 'list_account']);
     Route::post('/admin/account/delete', [UserController::class, 'delete_account']);

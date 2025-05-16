@@ -10,16 +10,34 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <section style="max-height: 100%;max-width: 100%;overflow: hidden;aspect-ratio: 2.21/1;position: relative;"class="slider">
-                       @include('part.slides')                         
+                    <section
+                        style="max-height: 100%;max-width: 100%;overflow: hidden;aspect-ratio: 2.21/1;position: relative;"class="slider">
+                        @include('part.slides')
                     </section>
 
                 </div>
             </div>
         </div>
     </div>
+    <div class="content-name-villa">
+        <h1 class="blinking-text">LUSHVILLA</h1>
+        <div class="containerrr">
+            <div class="prog-blur image-1">
+            </div>
+
+            <div class="prog-blur image-2">
+            </div>
+
+            <div class="prog-blur image-3">
+            </div>
+            <div class="prog-blur image-4">
+            </div>
+            <div class="prog-blur image-5"> 
+            </div>   
+        </div>
+    </div>
     <div class="p-6 text-gray-900">
-        {{ __("You're logged in!") }}
+        @include('part.article')
     </div>
     @push('scripts')
     @endpush
