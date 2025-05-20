@@ -82,7 +82,7 @@ function toggleNote(el) {
 
     if (container.style.webkitLineClamp === 'unset' || container.style.webkitLineClamp === '') {
         container.style.webkitLineClamp = '5';
-        more.textContent = '... xem thêm';
+        more.textContent = 'xem thêm';
     } else {
         container.style.webkitLineClamp = 'unset';
         more.textContent = 'Thu gọn';
