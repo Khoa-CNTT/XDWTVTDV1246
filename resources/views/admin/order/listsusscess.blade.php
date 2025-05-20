@@ -17,6 +17,7 @@
             </thead>
             <tbody>
                 @foreach ($orders as $order)
+      
                     <tr>
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->username }}</td>
@@ -39,6 +40,7 @@
                         <td><a onclick="removeRowORDER(order_id=<?php echo $order->id; ?>,url='/admin/order/delete')"
                                 class="delete-class" href="">Xóa</a></td>
                     </tr>
+                
                 @endforeach
             </tbody>
         </table>

@@ -6,7 +6,9 @@
     </x-slot>
 
 <section class="product-detail p-to-top">
-   @include('part.success')
+   <div class="admin-content-main-content">
+        @yield('content')
+    </div>
 </section>
 
 

@@ -3,6 +3,11 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Giỏ Hàng') }}
         </h2>
+         @if(session('error'))
+                            <div class="alert alert-danger" style="color: red; text-align: center;">    
+                                {{ session('error') }}
+                            </div>
+                        @endif
     </x-slot>
 
     <section class="cart-secsion p-to-top">
@@ -101,6 +106,7 @@
                             <p>Giỏ hàng của bạn hiện đang trống. <a href="/AllProducts" style="color: blue;"> Xem Sản
                                     Phẩm</a>.</p>
                         @endif
+                       
 
                     </div>
                     <div class="cart-secsion-right">
@@ -140,21 +146,26 @@
             const totalDisplay = document.getElementById("total-display");
         
             function calculateTotal() {
-                const checkInDate = new Date(checkin.value);
-                const checkOutDate = new Date(checkout.value);
-        
-                if (checkin.value && checkout.value && checkOutDate > checkInDate) {
-                    const days = Math.floor((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
-                    let total = 0;
-        
-                    document.querySelectorAll('.price-per-day').forEach(el => {
-                        const price = parseInt(el.value);
-                        total += price * days;
-                    });
-        
-                    totalDisplay.textContent = total.toLocaleString('vi-VN');
-                }
-            }
+    const checkInDate = new Date(checkin.value);
+    const checkOutDate = new Date(checkout.value);
+
+    if (checkin.value && checkout.value && checkOutDate > checkInDate) {
+        const days = Math.floor((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+        let total = 0;
+
+        document.querySelectorAll('.price-per-day').forEach(el => {
+            const price = parseInt(el.value);
+            total += price * days;
+        });
+
+        totalDisplay.textContent = total.toLocaleString('vi-VN');
+        document.getElementById('total').value = total;  // Cập nhật giá trị hidden input
+    } else {
+        totalDisplay.textContent = "0";
+        document.getElementById('total').value = 0;
+    }
+}
+
         
             checkin.addEventListener("change", calculateTotal);
             checkout.addEventListener("change", calculateTotal);

@@ -20,9 +20,10 @@
                       <li><a href=""><i class="ri-file-list-line"></i>Quản Lý Đơn Hàng<i class="ri-add-box-line"></i></a>
                           <ul class="sub-menu">
                               <div class="sub-menu-item">
-                                  <li><a href="/admin/order/list"><i class="ri-arrow-right-s-fill"></i>Đơn Hàng</a></li>
-                                  <li><a href="/admin/order/detail"><i class="ri-arrow-right-s-fill"></i>Chi Tiết</a>
-                                  </li>
+                                  <li><a href="/admin/order/list"><i class="ri-arrow-right-s-fill"></i>Quản Lý Thanh Toán</a></li>
+                                  {{-- <li><a href="/admin/order/detail"><i class="ri-arrow-right-s-fill"></i>Chi Tiết</a>
+                                  </li> --}}
+                                  <li><a href="/admin/order/listsuscess"><i class="ri-arrow-right-s-fill"></i> Danh Sách Đơn Hàng</a></li>
                               </div>
                           </ul>
                       </li>
@@ -45,7 +46,7 @@
                           <ul class="sub-menu">
                               <div class="sub-menu-item">
                                   <li>
-                                      <a href="/admin/account/list"><i class="ri-arrow-right-s-fill"></i>Cấp Quyền</a>
+                                      <a href="/admin/account/list"><i class="ri-arrow-right-s-fill"></i>Thông tin Tài Khoản</a>
                                   </li>
 
                               </div>

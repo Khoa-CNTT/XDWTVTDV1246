@@ -53,14 +53,43 @@
             </div>
         </div>
         <div class="row-flex" style="padding-bottom: 100px;">
-            <div class="product-detail-content">
-                <h2>Mô tả chi tiết</h2>
-                <p>
-                    {!! nl2br(e($product->Content )) !!}
-                </p>
-                
-            </div>
+    <div class="product-detail-content">
+        <h2>Mô tả chi tiết</h2>
+        <div style="max-width: 600px; white-space: normal; word-break: break-word;">
+            <p class="note-text" onclick="toggleNote(this)" style="margin-bottom: 0; cursor: pointer;">
+                {!! nl2br(e($product->Content)) !!}
+            </p>
+            <small class="read-more" onclick="toggleNote(this)" style="color:blue; cursor:pointer;">xem thêm</small>
         </div>
+    </div>
+</div>
+
+<style>
+.note-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* giới hạn 5 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+</style>
+
+<script>
+function toggleNote(el) {
+    const container = el.closest('div').querySelector('.note-text');
+    const more = el.closest('div').querySelector('.read-more');
+
+    if (container.style.webkitLineClamp === 'unset' || container.style.webkitLineClamp === '') {
+        container.style.webkitLineClamp = '5';
+        more.textContent = '... xem thêm';
+    } else {
+        container.style.webkitLineClamp = 'unset';
+        more.textContent = 'Thu gọn';
+    }
+}
+</script>
+
     </div>
     @csrf
 </form>

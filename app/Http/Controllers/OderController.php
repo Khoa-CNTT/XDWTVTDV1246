@@ -10,7 +10,10 @@ class OderController extends Controller
 
     public function index()
     {
-        return view('order');
+        return view('part.success');
     }
-
+    public function failed()
+    {
+        return view('part.failed');
+    }
 }

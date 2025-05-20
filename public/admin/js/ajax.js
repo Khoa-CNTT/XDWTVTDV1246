@@ -87,12 +87,12 @@ function removeRow(product_id, url) {
 }
 
 
-function removeRows(slide_id, url) {
+function removeRowSLDER(slide_id, url) {
     if (confirm("Bạn Có Chắc Chán Xóa?")) {
         $.ajax({
             url: url,
             data: { slide_id },
-            method: 'GET',
+            method: 'POST',
             dataType: 'JSON',
             success: function (res) {
                 if (res.success == true) {
@@ -110,7 +110,7 @@ function removeRows(slide_id, url) {
     }
 }
 
-function removeRowOD(order_id, url) {
+function removeRowORDER(order_id, url) {
     if (confirm("Bạn Có Chắc Chắn Xóa?")) {
         $.ajax({
             url: url,
@@ -137,12 +137,12 @@ function removeRowOD(order_id, url) {
 }
 
 
-function removeRowOD(user_id, url) {
+function removeRowUSER(user_id, url) {
     if (confirm("Bạn Có Chắc Chán Xóa?")) {
         $.ajax({
             url: url,
             data: { user_id },
-            method: 'GET',
+            method: 'POST',
             dataType: 'JSON',
             success: function (res) {
                 if (res.success == true) {

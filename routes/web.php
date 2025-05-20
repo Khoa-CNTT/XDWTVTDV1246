@@ -51,6 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     Route::get('/order_success', [OderController::class, 'index']);
+    Route::get('/order_failed', [OderController::class, 'failed']);
 });
 Route::middleware('auth')->group(function () {
 
@@ -94,6 +95,7 @@ Route::middleware((['auth', 'admin']))->group(function () {
 
 
     Route::get('/admin/order/list', [AdminOrderController::class, 'list_order']);
+    Route::get('/admin/order/listsuscess', [AdminOrderController::class, 'listsc_order']);
     Route::post('/admin/order/delete', [AdminOrderController::class, 'delete_order']);
     Route::get('/admin/order/detail/{id}', [AdminOrderController::class, 'detail_order']);
 

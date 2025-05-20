@@ -19,21 +19,42 @@
             </div>
         </div>
     </div>
+   
     <div class="content-name-villa">
         <h1 class="blinking-text">LUSHVILLA</h1>
         <div class="containerrr">
-            <div class="prog-blur image-1">
-            </div>
-
-            <div class="prog-blur image-2">
-            </div>
-
-            <div class="prog-blur image-3">
-            </div>
-            <div class="prog-blur image-4">
-            </div>
-            <div class="prog-blur image-5"> 
-            </div>   
+                <section class="why-choose-us">
+                <div class="container-fluid-center">
+                    <h2>Tại sao chọn Villa của chúng tôi?</h2>
+                    <p>Chúng tôi mang đến trải nghiệm nghỉ dưỡng đẳng cấp và thư giãn tuyệt đối cho bạn.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i data-lucide="map-pin"></i>
+                            <i class='bx bxs-map-pin'></i>
+                            <h3>Vị trí đắc địa</h3>
+                            <p>Tọa lạc tại những vị trí đẹp nhất với view hướng biển hoặc núi tuyệt mỹ.</p>
+                        </div>
+                        <div class="feature">
+                            <i data-lucide="sparkles"></i>
+                            <i class='bx bxs-diamond'></i>
+                            <h3>Tiện nghi sang trọng</h3>
+                            <p>Nội thất và thiết kế sang trọng, hiện đại đảm bảo sự tiện nghi cao cấp nhất.</p>
+                        </div>
+                        <div class="feature">
+                            <i data-lucide="leaf"></i>
+                            <i class='bx bx-leaf' ></i>
+                            <h3>Không gian xanh</h3>
+                            <p>Villa được bao quanh bởi thiên nhiên trong lành, mang đến cảm giác thư thái.</p>
+                        </div>
+                        <div class="feature">
+                            <i data-lucide="concierge-bell"></i>
+                            <i class='bx bx-stopwatch' ></i>
+                            <h3>Dịch vụ hoàn hảo</h3>
+                            <p>Đội ngũ nhân viên phục vụ chuyên nghiệp, sẵn sàng hỗ trợ 24/7.</p>
+                        </div>
+                    </div>
+                </div>
+            </section> 
         </div>
     </div>
     <div class="p-6 text-gray-900">
@@ -41,6 +62,13 @@
     </div>
     @push('scripts')
     @endpush
+
+   
+
+<script>
+    lucide.createIcons();
+</script>
+
 </x-app-layout>
 
 

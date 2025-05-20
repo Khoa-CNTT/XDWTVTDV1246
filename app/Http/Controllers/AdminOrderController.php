@@ -13,9 +13,18 @@ class AdminOrderController extends Controller
         $orders = orders::all();
         return view('admin.order.list', [
             'orders' => $orders,
-            'title' => 'Danh Sách Đơn Hàng'
+            'title' => 'Danh Sách Thanh Toán'
         ]);
     }
+   public function listsc_order()
+{
+    $orders = orders::where('status', 'paid')->get();
+    return view('admin.order.list', [
+        'orders' => $orders,
+        'title' => 'Danh Sách Đơn Hàng'
+    ]);
+}
+
     public function delete_order(Request $request)
     {
         $order = orders::find($request->order_id);

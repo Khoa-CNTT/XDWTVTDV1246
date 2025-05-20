@@ -15,11 +15,12 @@ class UserController extends Controller
         ]);
     }
     public function delete_account(Request $request){
-        User::find($request -> user_id)->delete();
+        User::find($request->user_id)->delete();
         return response() -> json([
             'success' => true
         ]);
     }
+    
     public function edit_account(Request $request){
         $users = User::find($request -> id);
         return view('admin.account.edit',[

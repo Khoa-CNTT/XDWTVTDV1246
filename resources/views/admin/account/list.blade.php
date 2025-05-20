@@ -23,8 +23,8 @@
                                         <td>{{ $u->usertype }}</td>
                                         <td> <a class="edit-class" href="/admin/account/edit/{{ $u->id }}">Cấp Quyền</a></td>
                                         <td>
-                                            <a onclick="removeRow(user_id=<?php echo $u->id?>,url='/admin/account/delete')" class="delete-class" href="">Xóa Tài Khoản</a>
-                                            
+                                            <a onclick="removeRowUSER(user_id=<?php echo $u->id?>,url='/admin/account/delete')" class="delete-class">Xóa Tài Khoản</a>
+                                            @csrf
                                         </td>
                                     </tr>
                                 @endforeach

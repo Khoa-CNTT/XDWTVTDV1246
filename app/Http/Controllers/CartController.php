@@ -90,26 +90,51 @@ class CartController extends Controller
 
    
     public function store(Request $request)
-    {
+{
+    $user = Auth::user();
+    $productIds = $request->input('product_id'); // mảng product_id
+    $day_checkin = $request->input('day_checkin');
+    $day_checkout = $request->input('day_checkout');
 
-        
-        $user = Auth::user();
-        $token = Str::random(12);
-        $order = new orders();
-        $order->user_id = $user->id;
-        $order->username = $user->name;
-        $order->email = $user->email;
-        $order->day_checkin = $request->input('day_checkin');
-        $order->day_checkout = $request->input('day_checkout');
-        $order->note = $request->input('note');
-        $order->total = $request->input('total');
-        $order->order_detail = json_encode($request->input('product_id'));
-        $order->token =  $token;
-        $order->save();
-        // dd($order);
-        // Gọi VNPay
-        return $this->createVNPayPayment($order);
+    // Kiểm tra tồn tại trùng lịch thuê (đã đặt) trong khoảng thời gian này
+    $conflictOrders = orders::where('status', 'paid') // hoặc tùy chính sách, có thể bao gồm cả pending
+        ->where(function($query) use ($day_checkin, $day_checkout) {
+            $query->whereBetween('day_checkin', [$day_checkin, $day_checkout])
+                  ->orWhereBetween('day_checkout', [$day_checkin, $day_checkout])
+                  ->orWhere(function($q) use ($day_checkin, $day_checkout) {
+                      // Đơn thuê bao phủ toàn bộ khoảng mới
+                      $q->where('day_checkin', '<=', $day_checkin)
+                        ->where('day_checkout', '>=', $day_checkout);
+                  });
+        })
+        ->get();
+
+    // Lọc tiếp các đơn có chứa sản phẩm trùng
+    foreach ($conflictOrders as $order) {
+        $orderProducts = json_decode($order->order_detail, true);
+        if (count(array_intersect($orderProducts, $productIds)) > 0) {
+            // Nếu có trùng sản phẩm và trùng thời gian
+            return back()->with('error', 'Căn Hộ đã được thuê trong khoảng thời gian này, vui lòng chọn thời gian khác hoặc căn hộ khác.');
+        }
     }
+
+    // Nếu không trùng thì lưu đơn
+    $token = Str::random(12);
+    $order = new orders();
+    $order->user_id = $user->id;
+    $order->username = $user->name;
+    $order->email = $user->email;
+    $order->day_checkin = $day_checkin;
+    $order->day_checkout = $day_checkout;
+    $order->note = $request->input('note');
+    $order->total = $request->input('total');
+    $order->order_detail = json_encode($productIds);
+    $order->token =  $token;
+    $order->save();
+
+    return $this->createVNPayPayment($order);
+}
+
     public function createVNPayPayment($order)
     {
         $vnp_TmnCode = "5QKX8ZR5";
@@ -172,7 +197,7 @@ class CartController extends Controller
 
             return redirect('/order_success')->with('success', 'Thanh toán thành công!');
         } else {
-            return redirect('/order_success')->with('error', 'Thanh toán thất bại!');
+            return redirect('/order_failed')->with('error', 'Thanh toán thất bại!');
         }
     }
 }
