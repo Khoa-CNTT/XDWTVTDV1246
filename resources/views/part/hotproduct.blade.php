@@ -63,7 +63,7 @@
         </div>
     </div>
 </div>
-
+@include('part.cmt')
 <style>
 .note-text {
     display: -webkit-box;
@@ -73,6 +73,7 @@
     text-overflow: ellipsis;
     white-space: normal;
 }
+
 </style>
 
 <script>

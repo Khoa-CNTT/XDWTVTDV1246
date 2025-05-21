@@ -20,6 +20,7 @@
                     <x-nav-link :href="route('AllProducts')" :active="request()->routeIs('AllProducts')">
                         {{ __('Sản Phẩm') }}
                     </x-nav-link>
+                    
                     {{-- <x-nav-link :href="route('Products')" :active="request()->routeIs('Support')">
                         {{ __('Support') }}
                     </x-nav-link> --}}

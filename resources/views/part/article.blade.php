@@ -1,10 +1,12 @@
-<div class="article-content">
-    @foreach ($article as $article)
-        {!! nl2br(e($article->Content)) !!}
-    @endforeach
 
-    <div class="article-contact">
-        <span>📞</span>
-        <span>Liên hệ: 0707463127</span>
-    </div>
-</div>
+    <section class="innovation">
+        <img src="{{asset('frontend/asset/images/anhvilla.jpg')}}"
+            alt="Innovation car" />
+        <div class="text">
+            <h3 style="color: black">LUSHVILLA</h3>
+            @foreach ($article as $article)
+                <p style="color: black">{!! nl2br(e($article->Content)) !!}</p>
+            @endforeach
+        </div>
+    </section>
+

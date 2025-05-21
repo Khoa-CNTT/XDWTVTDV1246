@@ -19,55 +19,68 @@
             </div>
         </div>
     </div>
-   
-    <div class="content-name-villa">
-        <h1 class="blinking-text">LUSHVILLA</h1>
-        <div class="containerrr">
-                <section class="why-choose-us">
-                <div class="container-fluid-center">
-                    <h2>Tại sao chọn Villa của chúng tôi?</h2>
-                    <p>Chúng tôi mang đến trải nghiệm nghỉ dưỡng đẳng cấp và thư giãn tuyệt đối cho bạn.</p>
-                    <div class="features">
-                        <div class="feature">
-                            <i data-lucide="map-pin"></i>
-                            <i class='bx bxs-map-pin'></i>
-                            <h3>Vị trí đắc địa</h3>
-                            <p>Tọa lạc tại những vị trí đẹp nhất với view hướng biển hoặc núi tuyệt mỹ.</p>
-                        </div>
-                        <div class="feature">
-                            <i data-lucide="sparkles"></i>
-                            <i class='bx bxs-diamond'></i>
-                            <h3>Tiện nghi sang trọng</h3>
-                            <p>Nội thất và thiết kế sang trọng, hiện đại đảm bảo sự tiện nghi cao cấp nhất.</p>
-                        </div>
-                        <div class="feature">
-                            <i data-lucide="leaf"></i>
-                            <i class='bx bx-leaf' ></i>
-                            <h3>Không gian xanh</h3>
-                            <p>Villa được bao quanh bởi thiên nhiên trong lành, mang đến cảm giác thư thái.</p>
-                        </div>
-                        <div class="feature">
-                            <i data-lucide="concierge-bell"></i>
-                            <i class='bx bx-stopwatch' ></i>
-                            <h3>Dịch vụ hoàn hảo</h3>
-                            <p>Đội ngũ nhân viên phục vụ chuyên nghiệp, sẵn sàng hỗ trợ 24/7.</p>
-                        </div>
-                    </div>
-                </div>
-            </section> 
+    <h1 class="h1ct" style="padding-top: 200px">Cuộc sống đỉnh cao ngay trong tầm tay bạn</h1>
+    <section class="mission">
+
+        <div>
+            <h2>Sứ mệnh của chúng tôi</h2>
+            <p>Mang đến không gian sống hoàn hảo, hài hòa giữa vẻ đẹp thiên nhiên và tiện nghi hiện đại, kiến tạo những căn biệt thự đẳng cấp – nơi bạn tận hưởng sự bình yên, thư thái và bền vững cho ngày mai.</p>
+            <p>Hãy tưởng tượng một tổ ấm nơi thiên nhiên xanh mát ôm trọn, kiến trúc tinh tế và công nghệ tiên tiến hòa quyện tạo nên trải nghiệm sống thượng lưu, hoàn hảo từng chi tiết.</p>
         </div>
-    </div>
-    <div class="p-6 text-gray-900">
+        <div>
+            <h2>Kiến tạo phong cách sống vượt trội</h2>
+            <p>Chúng tôi không ngừng sáng tạo để mang đến những thiết kế biệt thự độc bản, sử dụng vật liệu thân thiện môi trường cùng giải pháp thông minh, nâng tầm chuẩn mực sống đẳng cấp, trọn vẹn cho bạn và gia đình.</p>
+        </div>
+    </section>
+    <div class="p-6 text-gray-900" style="padding-top: 200px">
         @include('part.article')
     </div>
+    <div class="containerrr" style="padding-top: 100px">
+        <section class="why-choose-us">
+            <div class="container-fluid-center">
+                <h2>Tại sao chọn Villa của chúng tôi?</h2>
+                <p>Chúng tôi mang đến trải nghiệm nghỉ dưỡng đẳng cấp và thư giãn tuyệt đối cho bạn.</p>
+                <div class="features">
+                    <div class="feature">
+                        <i data-lucide="map-pin"></i>
+                        <i class='bx bxs-map-pin'></i>
+                        <h3>Vị trí đắc địa</h3>
+                        <p>Tọa lạc tại những vị trí đẹp nhất với view hướng biển hoặc núi tuyệt mỹ.</p>
+                    </div>
+                    <div class="feature">
+                        <i data-lucide="sparkles"></i>
+                        <i class='bx bxs-diamond'></i>
+                        <h3>Tiện nghi sang trọng</h3>
+                        <p>Nội thất và thiết kế sang trọng, hiện đại đảm bảo sự tiện nghi cao cấp nhất.</p>
+                    </div>
+                    <div class="feature">
+                        <i data-lucide="leaf"></i>
+                        <i class='bx bx-leaf'></i>
+                        <h3>Không gian xanh</h3>
+                        <p>Villa được bao quanh bởi thiên nhiên trong lành, mang đến cảm giác thư thái.</p>
+                    </div>
+                    <div class="feature">
+                        <i data-lucide="concierge-bell"></i>
+                        <i class='bx bx-stopwatch'></i>
+                        <h3>Dịch vụ hoàn hảo</h3>
+                        <p>Đội ngũ nhân viên phục vụ chuyên nghiệp, sẵn sàng hỗ trợ 24/7.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
     @push('scripts')
     @endpush
 
-   
 
-<script>
-    lucide.createIcons();
-</script>
+
+    <script>
+        lucide.createIcons();
+    </script>
 
 </x-app-layout>
 
@@ -115,3 +128,10 @@
 <footer>
     @include('part.footer')
 </footer>
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="LushVilla xin chào"
+  chat-title="LUSHVILLA"
+  agent-id="251ca702-4a08-4062-9ab6-bf160c8ad6e9"
+  language-code="vi">
+</df-messenger>

@@ -27,17 +27,10 @@ Route::get('AllProducts', [ProductsController::class, 'show_allhotproduct'])->na
  Route::get('/Products/{id}', [ProductsController::class, 'show_product'])->name('Products/{id}');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    // Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::get('/OrderHistory',  [OrderHistoryController::class, 'index'])->name('OrderHistory');
-    
-   
-    // Route::get('/dashboard', [BannerController::class, 'index'])->name('dashboard');
-
-    // Route::get('/order_confirm',[OrderController::class,'show_orderconfirm']);
-    // Route::get('/order_success',function () {return view('shop.order_success');});
+    Route::get('/Search',  [ProductsController::class, 'search'])->name('Search');
     Route::post('/cart/add', [CartController::class, 'add_cart']);
     Route::get('/cart', [CartController::class, 'show_cart']);
-    // Route::get('/shop/cart',function () {return view('shop.cart');});
     Route::get('/cart/count', function () {
         $cartCount = session()->get('Cart') ? array_sum(array_column(session()->get('Cart'), 'quantity')) : 0;
         return response()->json(['cartCount' => $cartCount]);

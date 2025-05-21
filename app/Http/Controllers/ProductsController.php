@@ -28,4 +28,18 @@ class ProductsController extends Controller
             
         ]);
     }
+    public function search(Request $request)
+    {
+         $keyword = $request->input('keyword');
+
+    $products = products::query();
+
+    if ($keyword) {
+        $products = $products->where('Name', 'LIKE', "%{$keyword}%");
+    }
+
+    $products = $products->get();
+
+    return view('AllProducts', compact('products', 'keyword'));
+    }
 }
