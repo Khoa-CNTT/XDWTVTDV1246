@@ -21,13 +21,21 @@ class ProductsController extends Controller
         ]);
     }
     
-    public function show_product(Request $request){
-        $product = products::find($request -> id);
-        return view('Products', [
-            'product' =>  $product,
-            
-        ]);
-    }
+  public function show_product(Request $request)
+{
+    // Lấy sản phẩm theo ID, nếu không tìm thấy sẽ trả về lỗi 404
+    $product = products::findOrFail($request->id);
+    
+    // Lấy tất cả các review của sản phẩm
+    $reviews = $product->reviews;
+
+    // Trả về view và truyền dữ liệu sản phẩm và review
+    return view('Products', [
+        'product' => $product,
+        'reviews' => $reviews, // Truyền reviews vào view
+    ]);
+}
+
     public function search(Request $request)
     {
          $keyword = $request->input('keyword');

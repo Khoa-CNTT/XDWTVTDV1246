@@ -1,4 +1,4 @@
-<div class="comments-container">
+{{-- <div class="comments-container">
     <h2>Đánh Giá</h2>
 
     <div class="comment">
@@ -26,7 +26,27 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
+
+    <div class="comments-container">
+        <h2>Đánh Giá</h2>
+
+        @foreach($reviews as $review)
+            <div class="comment">
+                <div class="avatar">{{ strtoupper(substr($review->username, 0, 2)) }}</div>
+                <div class="comment-body">
+                    <div class="comment-header">
+                        <div class="comment-author">{{ $review->username }}</div>
+                        <div class="comment-time">{{ $review->created_at->diffForHumans() }}</div>
+                    </div>
+                    <div class="comment-text">
+                        {{ $review->review }}
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
+    </div>
 
 <div style="margin: 50px 0 200px 0;">
 

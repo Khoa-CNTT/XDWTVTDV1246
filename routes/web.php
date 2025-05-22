@@ -20,14 +20,15 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 Route::get('/dashboard', [BannerController::class, 'index'])->name('dashboard');
 Route::get('/', [BannerController::class, 'index'])->name('dashboard');
 Route::get('AllProducts', [ProductsController::class, 'show_allhotproduct'])->name('AllProducts');
- Route::get('/Products/{id}', [ProductsController::class, 'show_product'])->name('Products/{id}');
+Route::get('/Products/{id}', [ProductsController::class, 'show_product'])->name('Products/{id}');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/OrderHistory',  [OrderHistoryController::class, 'index'])->name('OrderHistory');
     Route::get('/Search',  [ProductsController::class, 'search'])->name('Search');
     Route::post('/cart/add', [CartController::class, 'add_cart']);
     Route::get('/cart', [CartController::class, 'show_cart']);
@@ -35,16 +36,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
         $cartCount = session()->get('Cart') ? array_sum(array_column(session()->get('Cart'), 'quantity')) : 0;
         return response()->json(['cartCount' => $cartCount]);
     });
-
     Route::get('/cart/delete/{id}', [CartController::class, 'delete_cart']);
     Route::post('/cart/update', [CartController::class, 'update_cart']);
     Route::post('/calculate-cost', [CartController::class, 'calculateStayCost']);
     Route::post('/cart/send', [CartController::class, 'store']);
     Route::get('/vnpay_return', [CartController::class, 'vnpayReturn'])->name('vnpay.return');
 
-
+    Route::get('/order/detail/{order_detail}', [OrderHistoryController::class, 'detail_order']);
+    Route::post('/order/review',   [OrderHistoryController::class, 'review']);
+    Route::get('/OrderHistory',  [OrderHistoryController::class, 'index'])->name('OrderHistory');
     Route::get('/order_success', [OderController::class, 'index']);
     Route::get('/order_failed', [OderController::class, 'failed']);
+    
 });
 Route::middleware('auth')->group(function () {
 
@@ -91,7 +94,6 @@ Route::middleware((['auth', 'admin']))->group(function () {
     Route::get('/admin/order/listsuscess', [AdminOrderController::class, 'listsc_order']);
     Route::post('/admin/order/delete', [AdminOrderController::class, 'delete_order']);
     Route::get('/admin/order/detail/{id}', [AdminOrderController::class, 'detail_order']);
-
 });
 
 
