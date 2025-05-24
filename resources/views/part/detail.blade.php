@@ -7,6 +7,7 @@
                     <th>ID</th>
                     <th>Ảnh</th>
                     <th>Tên</th>
+                    <th>Địa Chỉ</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +18,7 @@
                         <td><img style="width: 70px;margin-left: 40% " src="{{ asset($product->avatar) }}" alt="">
                         </td>
                         <td>{{ $product->Name }}</td>
+                        <td>{{ $product->Address }}</td>
                     </tr>
                 @endforeach
             </tbody>

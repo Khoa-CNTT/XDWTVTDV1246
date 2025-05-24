@@ -91,11 +91,17 @@ input {
     color: white;
     font-weight: bold;
 }
+.slider-item img {
+    width: 1200px;
+    height: 560px;
+    object-fit: cover; /* hoặc contain tùy mục đích */
+    display: block; /* để loại bỏ khoảng cách dưới ảnh */
+}
 
 .color-span {
     color: #7b7a7a;
     font-size: small;
-    background-color: rgba(188, 188, 188, 0.403);
+    /* background-color: rgba(188, 188, 188, 0.403); */
     border-radius: 2px;
     margin-right: 4px;
 }
@@ -654,13 +660,14 @@ section.mission p {
 
 .hot-products .row-grid-hot-products {
     grid-template-columns: repeat(4, 30%);
+    gap: 30px; 
 }
 
 .hot-product-item {
     transition: var(--main-traisision);
     border: 1px solid rgb(195, 195, 195);
     padding: 10px;
-    margin-right: 20px;
+ 
     margin-bottom: 20px;
     display: inline-block;
     vertical-align: top;

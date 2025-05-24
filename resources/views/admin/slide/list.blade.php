@@ -30,7 +30,9 @@
                                         
                                         <td>
                                             <a class="edit-class" href="/admin/slide/edit/{{$banner -> id}}">Sửa</a>
+                                            <a onclick="removeRowSLDER(banner=<?php echo $banner -> id?>,url='/admin/slide/delete')" class="delete-class" href="">Xóa</a>
                                              </td>
+
                                     </tr>  
                                     @endforeach
                                     

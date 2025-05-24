@@ -73,7 +73,7 @@ Route::middleware((['auth', 'admin']))->group(function () {
     Route::post('admin/slide/add', [AdminBannerController::class, 'insert_banner']);
     Route::get('admin/slide/create', [AdminBannerController::class, 'add_banner']);
     Route::get('admin/slide/list', [AdminBannerController::class, 'list_banner']);
-    Route::get('admin/slide/delete', [AdminBannerController::class, 'delete_banner']);
+    Route::post('admin/slide/delete', [AdminBannerController::class, 'delete_banner']);
     Route::get('admin/slide/edit/{id}', [AdminBannerController::class, 'edit_banner']);
     Route::post('admin/slide/edit/{id}', [AdminBannerController::class, 'update_banner']);
 

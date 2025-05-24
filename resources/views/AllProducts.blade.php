@@ -49,52 +49,62 @@
         @endif
     </div>
 
-    <div class="pading-products" style="padding-bottom: 50px"></div>
-    <section class="hot-products">
-        <div class="container">
-            <div class="row-grid row-grid-hot-products">
-                @forelse ($products as $product)
-                    <div class="hot-product-item">
-                        <div class="hangrao">
-                            <a href="/Products/{{ $product->id }}">
-                                <img style="height: 200px" src="{{ asset($product->avatar) }}" alt="">
-                            </a>
-                            <p class="red">
+  
+
+    @php
+        $regions = $products->pluck('Region')->unique();
+    @endphp
+
+    @foreach ($regions as $region)
+        <section class="hot-products">
+            <div class="container">
+                <h3 class="region-title" style="font-weight: bold; padding-bottom: 30px">{{ $region }}</h3>
+                <div class="row-grid row-grid-hot-products">
+                    @foreach ($products->where('Region', $region) as $product)
+                        <div class="hot-product-item">
+                            <div class="hangrao">
                                 <a href="/Products/{{ $product->id }}">
-                                    {{ $product->Name }}
+                                    <img style="height: 200px" src="{{ asset($product->avatar) }}" alt="">
                                 </a>
-                            </p>
-                            <span class="color-span"><span style="color: black">Địa chỉ: </span>
-                                {{ $product->Address }}
-                            </span>
-                            <br>
-                            <span class="color-span"> <span style="color: black">Chất lượng: </span>
-                                <span style="color: rgb(189, 189, 3)">
-                                    @for ($i = 0; $i < (int) $product->Star_rating; $i++)
-                                        ★
-                                    @endfor
-                                </span>
-                            </span>
-                            <div class="hot-product-item-price">
-                                <p>
-                                    <span class="sale">
-                                        {{ number_format($product->Price_sale) }}<sup>₫</sup>
-                                    </span>
-                                    <span class="money">
-                                        {{ number_format($product->Price_nomal) }}<sup>₫</sup>
-                                    </span>
+                                <p class="red">
+                                    <a href="/Products/{{ $product->id }}">
+                                        {{ $product->Name }}
+                                    </a>
                                 </p>
+                                <span class="color-span"><span style="color: black">Địa chỉ: </span>
+                                    {{ $product->Address }}
+                                </span>
+                                <br>
+                                <span class="color-span"><span style="color: black">Chất lượng: </span>
+                                    <span style="color: rgb(189, 189, 3)">
+                                        @for ($i = 0; $i < (int) $product->Star_rating; $i++)
+                                            ★
+                                        @endfor
+                                    </span>
+                                </span>
+                                <div class="hot-product-item-price">
+                                    <p>
+                                        <span class="sale">
+                                            {{ number_format($product->Price_sale) }}<sup>₫</sup>
+                                        </span>
+                                        <span class="money">
+                                            {{ number_format($product->Price_nomal) }}<sup>₫</sup>
+                                        </span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @empty
-                    <p>Không tìm thấy sản phẩm nào.</p>
-                @endforelse
+                        
+                    @endforeach
+                   
+                </div>
             </div>
-        </div>
-    </section>
+              <div class="pading-products" style="padding-bottom: 50px"></div>
+        </section>
+         
+    @endforeach
+<div class="haha" style="margin-bottom: 200px"></div>
+    <footer>
+        @include('part.footer')
+    </footer>
 </x-app-layout>
-
-<footer>
-    @include('part.footer')
-</footer>

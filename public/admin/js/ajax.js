@@ -87,11 +87,11 @@ function removeRow(product_id, url) {
 }
 
 
-function removeRowSLDER(slide_id, url) {
+function removeRowSLDER(banner_id, url) {
     if (confirm("Bạn Có Chắc Chán Xóa?")) {
         $.ajax({
             url: url,
-            data: { slide_id },
+            data: { banner_id },
             method: 'POST',
             dataType: 'JSON',
             success: function (res) {

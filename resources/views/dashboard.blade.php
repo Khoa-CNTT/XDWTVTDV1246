@@ -24,12 +24,16 @@
 
         <div>
             <h2>Sứ mệnh của chúng tôi</h2>
-            <p>Mang đến không gian sống hoàn hảo, hài hòa giữa vẻ đẹp thiên nhiên và tiện nghi hiện đại, kiến tạo những căn biệt thự đẳng cấp – nơi bạn tận hưởng sự bình yên, thư thái và bền vững cho ngày mai.</p>
-            <p>Hãy tưởng tượng một tổ ấm nơi thiên nhiên xanh mát ôm trọn, kiến trúc tinh tế và công nghệ tiên tiến hòa quyện tạo nên trải nghiệm sống thượng lưu, hoàn hảo từng chi tiết.</p>
+            <p>Mang đến không gian sống hoàn hảo, hài hòa giữa vẻ đẹp thiên nhiên và tiện nghi hiện đại, kiến tạo những
+                căn biệt thự đẳng cấp – nơi bạn tận hưởng sự bình yên, thư thái và bền vững cho ngày mai.</p>
+            <p>Hãy tưởng tượng một tổ ấm nơi thiên nhiên xanh mát ôm trọn, kiến trúc tinh tế và công nghệ tiên tiến hòa
+                quyện tạo nên trải nghiệm sống thượng lưu, hoàn hảo từng chi tiết.</p>
         </div>
         <div>
             <h2>Kiến tạo phong cách sống vượt trội</h2>
-            <p>Chúng tôi không ngừng sáng tạo để mang đến những thiết kế biệt thự độc bản, sử dụng vật liệu thân thiện môi trường cùng giải pháp thông minh, nâng tầm chuẩn mực sống đẳng cấp, trọn vẹn cho bạn và gia đình.</p>
+            <p>Chúng tôi không ngừng sáng tạo để mang đến những thiết kế biệt thự độc bản, sử dụng vật liệu thân thiện
+                môi trường cùng giải pháp thông minh, nâng tầm chuẩn mực sống đẳng cấp, trọn vẹn cho bạn và gia đình.
+            </p>
         </div>
     </section>
     <div class="p-6 text-gray-900" style="padding-top: 200px">
@@ -68,19 +72,18 @@
                 </div>
             </div>
         </section>
-
-    </div>
-
-
-
-    @push('scripts')
-    @endpush
+        </div >
 
 
 
-    <script>
-        lucide.createIcons();
-    </script>
+        @push('scripts')
+        @endpush
+
+
+
+        <script>
+            lucide.createIcons();
+        </script>
 
 </x-app-layout>
 
@@ -125,13 +128,11 @@
         setInterval(nextSlide, 3000); // Đổi ảnh mỗi 3s
     });
 </script>
+
 <footer>
     @include('part.footer')
 </footer>
 <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-  intent="LushVilla xin chào"
-  chat-title="LUSHVILLA"
-  agent-id="251ca702-4a08-4062-9ab6-bf160c8ad6e9"
-  language-code="vi">
+<df-messenger intent="LushVilla xin chào" chat-title="LUSHVILLA" agent-id="251ca702-4a08-4062-9ab6-bf160c8ad6e9"
+    language-code="vi">
 </df-messenger>
